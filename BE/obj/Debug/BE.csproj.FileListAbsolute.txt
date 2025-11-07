@@ -1,0 +1,9 @@
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\BE\bin\Debug\BE.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\BE\bin\Debug\BE.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\BE\bin\Debug\Abstraccion.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\BE\bin\Debug\Abstraccion.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\BE\obj\Debug\BE.csproj.AssemblyReference.cache
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\BE\obj\Debug\BE.csproj.Up2Date
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\BE\obj\Debug\BE.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\BE\obj\Debug\BE.pdb

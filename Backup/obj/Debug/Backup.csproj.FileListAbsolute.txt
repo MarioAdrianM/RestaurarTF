@@ -1,0 +1,6 @@
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Backup\bin\Debug\Backup.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Backup\bin\Debug\Backup.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Backup\obj\Debug\Backup.csproj.AssemblyReference.cache
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Backup\obj\Debug\Backup.csproj.CoreCompileInputs.cache
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Backup\obj\Debug\Backup.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Backup\obj\Debug\Backup.pdb

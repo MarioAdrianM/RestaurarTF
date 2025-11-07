@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <!-- ============ USUARIOS ============ -->
+  <Usuarios>
+    <usuario Id="1">
+      <Usuario>admin</Usuario>
+      <!-- "admin" en la encriptación que trae tu código -->
+      <Password>YQBkAG0AaQBuAA==</Password>
+      <Activo>True</Activo>
+      <Bloqueado>False</Bloqueado>
+    </usuario>
+    <usuario Id="2">
+      <Usuario>adrian</Usuario>
+      <Password>MQA=</Password>
+      <Activo>False</Activo>
+      <Bloqueado>False</Bloqueado>
+    </usuario>
+    <usuario Id="3">
+      <Usuario>mario</Usuario>
+      <Password>MQA=</Password>
+      <Activo>True</Activo>
+      <Bloqueado>False</Bloqueado>
+    </usuario>
+  </Usuarios>
+  <!-- ============ RELACIÓN USUARIO - ROLES ============ -->
+  <Usuario_Roles>
+    <usuario_rol>
+      <Id_Usuario>1</Id_Usuario>
+      <Id_Rol_Padre>1</Id_Rol_Padre>
+    </usuario_rol>
+    <usuario_rol>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Rol_Padre>2</Id_Rol_Padre>
+    </usuario_rol>
+    <usuario_rol>
+      <Id_Usuario>2</Id_Usuario>
+      <Id_Rol_Padre>2</Id_Rol_Padre>
+    </usuario_rol>
+  </Usuario_Roles>
+  <!-- ============ RELACIÓN USUARIO - PERMISOS DIRECTOS (vacío) ============ -->
+  <Usuario_Permisos />
+  <!-- ============ ROLES ============ -->
+  <Roles>
+    <rol Id="1">
+      <Nombre>Administrador</Nombre>
+    </rol>
+    <rol Id="2">
+      <Nombre>Cajero</Nombre>
+    </rol>
+  </Roles>
+  <!-- ============ PERMISOS ============ -->
+  <!-- estos deben coincidir con el Text de tus ToolStripMenuItem -->
+  <Permisos>
+    <permiso Id="1">
+      <Nombre>Mesas</Nombre>
+    </permiso>
+    <permiso Id="2">
+      <Nombre>Productos</Nombre>
+    </permiso>
+    <permiso Id="3">
+      <Nombre>Reservas</Nombre>
+    </permiso>
+    <permiso Id="4">
+      <Nombre>Comandas</Nombre>
+    </permiso>
+    <permiso Id="5">
+      <Nombre>Salir</Nombre>
+    </permiso>
+    <permiso Id="6">
+      <Nombre>Caja</Nombre>
+    </permiso>
+    <permiso Id="7">
+      <Nombre>Seguridad</Nombre>
+    </permiso>
+    <permiso Id="8">
+      <Nombre>ABM Usuario</Nombre>
+    </permiso>
+    <permiso Id="9">
+      <Nombre>Cobro de Mozo</Nombre>
+    </permiso>
+    <permiso Id="10">
+      <Nombre>Rendición de Cobros de Mozo</Nombre>
+    </permiso>
+    <permiso Id="11">
+      <Nombre>Resumen de Cobros de Mozo</Nombre>
+    </permiso>
+    <permiso Id="12">
+      <Nombre>Comandas</Nombre>
+    </permiso>
+    <permiso Id="13">
+      <Nombre>Cocina</Nombre>
+    </permiso>
+    <permiso Id="14">
+      <Nombre>Facturas</Nombre>
+    </permiso>
+  </Permisos>
+  <!-- ============ RELACIÓN ROL - PERMISOS ============ -->
+  <Rol_Permisos>
+    <!-- el rol 1 (Administrador) tiene todo -->
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>1</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>2</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>3</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>4</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>5</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>6</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>7</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>8</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>9</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>10</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>11</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>12</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>13</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>1</Id_Rol>
+      <Id_Permiso>14</Id_Permiso>
+    </rol_permiso>
+    <!-- rol 2 (Cajero) -->
+    <rol_permiso>
+      <Id_Rol>2</Id_Rol>
+      <Id_Permiso>2</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>2</Id_Rol>
+      <Id_Permiso>6</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>2</Id_Rol>
+      <Id_Permiso>9</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>2</Id_Rol>
+      <Id_Permiso>10</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>2</Id_Rol>
+      <Id_Permiso>11</Id_Permiso>
+    </rol_permiso>
+  </Rol_Permisos>
+  <!-- ======================================================
+       NODOS DE TU DOMINIO
+       ====================================================== -->
+  <!-- Mesas del restaurante -->
+  <Mesas>
+    <Mesa Id="1">
+      <Codigo>M01</Codigo>
+      <Numero>1</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>2</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+    <Mesa Id="2">
+      <Codigo>M02</Codigo>
+      <Numero>2</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>0</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+    <Mesa Id="3">
+      <Codigo>M03</Codigo>
+      <Numero>3</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>0</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+  </Mesas>
+  <!-- Reservas de mesas -->
+  <Reservas>
+    <Reserva Id="1">
+      <FechaHora>2025-11-07T14:35:59.4048906-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>0</IdMesa>
+      <Estado>1</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+    </Reserva>
+    <Reserva Id="2">
+      <FechaHora>2025-11-09T14:36:31.0000000</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>0</IdMesa>
+      <Estado>2</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+    </Reserva>
+  </Reservas>
+  <!-- Comandas -->
+  <Comandas>
+    <Comanda Id="1">
+      <Id_Mesa>1</Id_Mesa>
+      <Fecha>2025-11-07T15:41:17.3602671-03:00</Fecha>
+      <Mozo>mozo</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>coca</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>100.50</PrecioUnitario>
+        </Detalle>
+        <Detalle>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>lomo al champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>25</PrecioUnitario>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+  </Comandas>
+  <!-- Productos del restaurante (carta) -->
+  <ProductosRestaurante></ProductosRestaurante>
+  <!-- Cobros de mozo -->
+  <CobrosMozo></CobrosMozo>
+  <Productos></Productos>
+  <Cajas></Cajas>
+  <MovimientosCaja />
+  <Facturas>
+    <Factura Id="1">
+      <Numero>1</Numero>
+      <Fecha>2025-11-07T15:42:32.4496831-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>1</Id_Comanda>
+      <Total>125.50</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>coca</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>100.50</PrecioUnitario>
+          <Subtotal>100.50</Subtotal>
+        </Detalle>
+        <Detalle>
+          <Descripcion>lomo al champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>25</PrecioUnitario>
+          <Subtotal>25</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+  </Facturas>
+  <ProductosCarta>
+    <ProductoCarta Id="1">
+      <Nombre>coca</Nombre>
+      <Categoria>Bebida</Categoria>
+      <Descripcion></Descripcion>
+      <Precio>100.50</Precio>
+      <Activo>True</Activo>
+    </ProductoCarta>
+    <ProductoCarta Id="2">
+      <Nombre>lomo al champignon</Nombre>
+      <Categoria>Plato</Categoria>
+      <Descripcion></Descripcion>
+      <Precio>25</Precio>
+      <Activo>True</Activo>
+    </ProductoCarta>
+  </ProductosCarta>
+</Root>

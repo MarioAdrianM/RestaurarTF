@@ -1,0 +1,6 @@
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Seguridad\bin\Debug\Seguridad.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Seguridad\bin\Debug\Seguridad.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Seguridad\obj\Debug\Seguridad.csproj.AssemblyReference.cache
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Seguridad\obj\Debug\Seguridad.csproj.CoreCompileInputs.cache
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Seguridad\obj\Debug\Seguridad.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\Seguridad\obj\Debug\Seguridad.pdb

@@ -1,0 +1,15 @@
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\MPP.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\MPP.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Abstraccion.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Backup.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\BE.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Seguridad.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Abstraccion.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Backup.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\BE.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Seguridad.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\obj\Debug\MPP.csproj.AssemblyReference.cache
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\obj\Debug\MPP.csproj.CoreCompileInputs.cache
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\obj\Debug\MPP.csproj.Up2Date
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\obj\Debug\MPP.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\obj\Debug\MPP.pdb
