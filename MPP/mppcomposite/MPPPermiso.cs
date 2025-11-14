@@ -91,7 +91,6 @@ namespace MPP
             if (nodo == null)
                 throw new Exception("No se encontró el permiso.");
 
-            // también sacarlo de rol_permisos
             var asocs = BDXML.Root.Element("Rol_Permisos")
                 .Descendants("rol_permiso")
                 .Where(x => x.Element("Id_Permiso").Value.Trim() == permiso.Id.ToString().Trim())
@@ -100,7 +99,6 @@ namespace MPP
             foreach (var a in asocs)
                 a.Remove();
 
-            // también de usuario_permisos
             var asocs2 = BDXML.Root.Element("Usuario_Permisos")
                 .Descendants("usuario_permiso")
                 .Where(x => x.Element("Id_Permiso").Value.Trim() == permiso.Id.ToString().Trim())

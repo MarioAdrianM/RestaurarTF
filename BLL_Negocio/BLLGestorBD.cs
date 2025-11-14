@@ -11,12 +11,9 @@ namespace BLL_Negocio
     {
         MPPGestorBD oMPPGestorBD;
 
-        #region "Constructor"
+     
         public BLLGestorBD() { oMPPGestorBD = new MPPGestorBD(); }
 
-        #endregion
-
-        #region "Métodos"
 
         public bool CrearBackup() { return oMPPGestorBD.CrearBackup(); }
 
@@ -24,6 +21,5 @@ namespace BLL_Negocio
 
         public List<string> ListarBackups() { return oMPPGestorBD.ListarBackups(); }
 
-        #endregion
     }
 }

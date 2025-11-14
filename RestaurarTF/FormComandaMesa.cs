@@ -31,17 +31,39 @@ namespace RestaurarTF
             lblMesa.Text = "Mesa: " + _idMesa;
             txtMozo.Text = _mozo;
 
-            // 1) busco si ya hay comanda abierta de esta mesa
             _comandaActual = _bllComanda.ObtenerAbiertaPorMesa(_idMesa);
             if (_comandaActual == null)
             {
-                // no hay, la abro
                 var nuevoId = _bllComanda.AbrirComanda(_idMesa, _mozo);
                 _comandaActual = _bllComanda.ObtenerPorId(nuevoId);
             }
 
             CargarProductos();
             CargarDetalle();
+        }
+        private void btnSolicitarFactura_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (_comandaActual == null || _comandaActual.Id <= 0)
+                {
+                    MessageBox.Show("No hay una comanda abierta para esta mesa.");
+                    return;
+                }
+
+                var ok = _bllComanda.SolicitarFactura(_comandaActual.Id);
+                if (ok)
+                    MessageBox.Show("Se solicitó la factura al cajero.");
+                else
+                    MessageBox.Show("No se pudo solicitar la factura.");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                
+            }
+            
         }
 
         private void CargarProductos()
@@ -72,15 +94,42 @@ namespace RestaurarTF
 
         private void CargarDetalle()
         {
-            // mostramos el detalle actual de la comanda
-            var lista = _comandaActual.Detalles
+            _comandaActual = _bllComanda.ObtenerPorId(_comandaActual.Id);
+            if (_comandaActual == null)
+            {
+                dgvDetalle.DataSource = null;
+                lblTotal.Text = "Total: $0,00";
+                return;
+            }
+
+            var pendientes = _comandaActual.Detalles
+                .Where(d => !d.Preparado && !d.Anulado)
                 .Select(d => new
                 {
-                    d.Descripcion,
-                    d.Cantidad,
-                    d.PrecioUnitario,
-                    Subtotal = d.Cantidad * d.PrecioUnitario
-                })
+                    Linea = d.Linea, 
+                    Producto = d.Descripcion,
+                    Cant = d.Cantidad,
+                    P_Unit = d.PrecioUnitario,
+                    Subtotal = d.Cantidad * d.PrecioUnitario,
+                    Estado = d.Enviado ? "Enviado" : "Agregado"
+                });
+            var listosAgrupados = _comandaActual.Detalles
+                .Where(d => d.Preparado && !d.Anulado)
+                .GroupBy(d => new { d.Descripcion, d.PrecioUnitario })
+                .Select(g => new
+                {
+                    Linea = 0, 
+                    Producto = g.Key.Descripcion,
+                    Cant = g.Sum(x => x.Cantidad),
+                    P_Unit = g.Key.PrecioUnitario,
+                    Subtotal = g.Sum(x => x.Cantidad * x.PrecioUnitario),
+                    Estado = "Listo"
+                });
+
+            var lista = pendientes
+                .Concat(listosAgrupados)
+                .OrderBy(x => x.Producto)
+                .ThenBy(x => x.Estado)
                 .ToList();
 
             dgvDetalle.AutoGenerateColumns = false;
@@ -89,6 +138,7 @@ namespace RestaurarTF
             decimal total = lista.Sum(x => x.Subtotal);
             lblTotal.Text = $"Total: ${total:N2}";
         }
+
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -106,17 +156,14 @@ namespace RestaurarTF
                     return;
                 }
 
-                // datos del producto
                 long idProd = Convert.ToInt64(dgvProductos.CurrentRow.Cells["colProdId"].Value);
                 string nombre = dgvProductos.CurrentRow.Cells["colProdNombre"].Value.ToString();
                 decimal precio = Convert.ToDecimal(dgvProductos.CurrentRow.Cells["colProdPrecio"].Value);
 
                 int cant = (int)nudCantidad.Value;
 
-                // guardamos en la comanda (XML) usando la BLL
                 _bllComanda.AgregarItem(_comandaActual.Id, idProd, nombre, cant, precio);
 
-                // volvemos a traer la comanda para refrescar la lista
                 _comandaActual = _bllComanda.ObtenerPorId(_comandaActual.Id);
                 CargarDetalle();
             }
@@ -128,22 +175,50 @@ namespace RestaurarTF
 
         private void btnQuitar_Click(object sender, EventArgs e)
         {
-            // Nota: tu MPPComanda actual NO tiene "QuitarDetalle".
-            // Para no tocar tu MPP, acá simplemente avisamos.
-            MessageBox.Show("Quitar ítem todavía no está implementado en el XML. Si querés, después lo agregamos en MPPComanda.");
+            if (dgvDetalle.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione un ítem.");
+                return;
+            }
+
+            int linea = Convert.ToInt32(dgvDetalle.CurrentRow.Cells["colDetLinea"].Value);
+
+            if (linea == 0)
+            {
+                MessageBox.Show("Este ítem ya está listo. Debe anularlo el cajero.");
+                return;
+            }
+
+            try
+            {
+                _bllComanda.QuitarDetalle(_comandaActual.Id, linea);
+                CargarDetalle();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             try
             {
+                if (_comandaActual == null)
+                {
+                    MessageBox.Show("No hay comanda.");
+                    return;
+                }
+
                 _bllComanda.EnviarACocina(_comandaActual.Id);
                 MessageBox.Show("Comanda enviada a cocina.");
-                this.Close();
+
+                _comandaActual = _bllComanda.ObtenerPorId(_comandaActual.Id);
+                CargarDetalle();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al enviar: " + ex.Message);
+                MessageBox.Show(ex.Message);
             }
         }
     }

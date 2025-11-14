@@ -9,7 +9,7 @@ namespace RestaurarTF
     public partial class FormABMUsuario : Form
     {
         private readonly BLLUsuario _bll;
-        private BEUsuario _actual;   // <- acá guardamos el seleccionado
+        private BEUsuario _actual;  
 
         public FormABMUsuario()
         {
@@ -67,6 +67,27 @@ namespace RestaurarTF
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             CargarUsuarios();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (_actual == null)
+            {
+                MessageBox.Show("Seleccione un usuario primero.");
+                return;
+            }
+
+            try
+            {
+                _bll.Eliminar(_actual);
+                MessageBox.Show("Usuario eliminado.");
+                _actual = null;
+                CargarUsuarios();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

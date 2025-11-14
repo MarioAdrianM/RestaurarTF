@@ -43,15 +43,19 @@
   <ItemGroup>
     <Compile Include="BEBitacora.cs" />
     <Compile Include="BECaja.cs" />
+    <Compile Include="BECategoriaProducto.cs" />
     <Compile Include="BECobroMozo.cs" />
     <Compile Include="BEComanda.cs" />
+    <Compile Include="BEComandaFacturadaMozo.cs" />
     <Compile Include="becomposite\BEComposite.cs" />
     <Compile Include="becomposite\BEPermiso.cs" />
     <Compile Include="becomposite\BERol.cs" />
+    <Compile Include="BECompra.cs" />
     <Compile Include="BEDetalleComanda.cs" />
     <Compile Include="BEDetalleFactura.cs" />
     <Compile Include="BEEntidad.cs" />
     <Compile Include="BEFactura.cs" />
+    <Compile Include="BEListaEspera.cs" />
     <Compile Include="BEMesa.cs" />
     <Compile Include="BEMovimientoCaja.cs" />
     <Compile Include="BEProductoCarta.cs" />

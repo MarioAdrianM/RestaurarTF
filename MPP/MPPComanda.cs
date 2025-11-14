@@ -38,6 +38,53 @@ namespace MPP
             var nodos = _doc.Root.Element("Comandas").Elements("Comanda");
             return nodos.Any() ? nodos.Max(x => (long)x.Attribute("Id")) : 0;
         }
+        public void MarcarTodosPreparados(long idComanda)
+        {
+            CargarXml();
+            var nodoComanda = _doc.Root.Element("Comandas")
+                .Elements("Comanda")
+                .FirstOrDefault(x => (long)x.Attribute("Id") == idComanda);
+            if (nodoComanda == null) return;
+
+            var detalles = nodoComanda.Element("Detalles")?.Elements("Detalle");
+            if (detalles == null) return;
+
+            foreach (var d in detalles)
+            {
+                if (d.Element("Preparado") == null)
+                    d.Add(new XElement("Preparado", "true"));
+                else
+                    d.Element("Preparado").Value = "true";
+            }
+
+            _doc.Save(_ruta);
+        }
+        public bool EstaProductoEnUso(long idProducto)
+        {
+            CargarXml();
+
+           
+            var comandasActivas = _doc.Root.Element("Comandas")
+                .Elements("Comanda")
+                .Where(x =>
+                {
+                    string estado = (string)x.Element("Estado");
+                    return estado != BEComanda.Estados.Facturada
+                        && estado != BEComanda.Estados.Cerrada
+                        && estado != BEComanda.Estados.Cancelada;
+                });
+
+
+            return comandasActivas
+                .SelectMany(x => x.Element("Detalles")?.Elements("Detalle") ?? Enumerable.Empty<XElement>())
+                .Any(d =>
+                {
+                    long pid = (long)d.Element("Id_Producto");
+                    bool anulado = (bool?)d.Element("Anulado") ?? false;
+                    return pid == idProducto && !anulado;
+                });
+        }
+
 
         public long Registrar(BEComanda comanda)
         {
@@ -76,12 +123,19 @@ namespace MPP
                 nodoDetalles = new XElement("Detalles");
                 nodoComanda.Add(nodoDetalles);
             }
+            int linea = nodoDetalles.Elements("Detalle").Count() + 1;
+            det.Linea = linea;
 
             var nodoDet = new XElement("Detalle",
+                new XElement("Linea", det.Linea),
                 new XElement("Id_Producto", det.Id_Producto),
                 new XElement("Descripcion", det.Descripcion ?? ""),
                 new XElement("Cantidad", det.Cantidad),
-                new XElement("PrecioUnitario", det.PrecioUnitario)
+                new XElement("PrecioUnitario", det.PrecioUnitario),
+                new XElement("Enviado", "false"),
+                new XElement("Preparado", "false"),
+                new XElement("Anulado", "false"),
+                new XElement("MotivoAnulacion", "")
             );
 
             nodoDetalles.Add(nodoDet);
@@ -122,10 +176,16 @@ namespace MPP
                         : x.Element("Detalles").Elements("Detalle")
                             .Select(d => new BEDetalleComanda
                             {
+                                Linea = (int?)d.Element("Linea") ?? 0,
                                 Id_Producto = (long)d.Element("Id_Producto"),
                                 Descripcion = (string)d.Element("Descripcion"),
                                 Cantidad = (int)d.Element("Cantidad"),
-                                PrecioUnitario = (decimal)d.Element("PrecioUnitario")
+                                PrecioUnitario = (decimal)d.Element("PrecioUnitario"),
+                                Enviado = (bool?)d.Element("Enviado") ?? false,
+                                Preparado = (bool?)d.Element("Preparado") ?? false,
+                                Anulado = (bool?)d.Element("Anulado") ?? false,
+                                MotivoAnulacion = (string)d.Element("MotivoAnulacion")
+
                             }).ToList()
                 })
                 .OrderBy(x => x.FechaHora)
@@ -133,8 +193,74 @@ namespace MPP
 
             return lista;
         }
+        public void EliminarDetalle(long idComanda, int linea)
+        {
+            CargarXml();
+            var nodoComanda = _doc.Root.Element("Comandas")
+                .Elements("Comanda")
+                .FirstOrDefault(x => (long)x.Attribute("Id") == idComanda);
+            if (nodoComanda == null) return;
 
-        // 👇 NUEVO: para facturar
+            var detalle = nodoComanda.Element("Detalles")?
+                .Elements("Detalle")
+                .FirstOrDefault(d => ((int?)d.Element("Linea") ?? 0) == linea);
+
+            if (detalle == null) return;
+
+            detalle.Remove();
+            _doc.Save(_ruta);
+        }
+
+        public void AnularDetalle(long idComanda, int linea, string motivo)
+        {
+            CargarXml();
+            var nodoComanda = _doc.Root.Element("Comandas")
+                .Elements("Comanda")
+                .FirstOrDefault(x => (long)x.Attribute("Id") == idComanda);
+            if (nodoComanda == null) return;
+
+            var detalle = nodoComanda.Element("Detalles")?
+                .Elements("Detalle")
+                .FirstOrDefault(d => ((int?)d.Element("Linea") ?? 0) == linea);
+
+            if (detalle == null) return;
+
+            if (detalle.Element("Anulado") == null)
+                detalle.Add(new XElement("Anulado", "true"));
+            else
+                detalle.Element("Anulado").Value = "true";
+
+            if (detalle.Element("MotivoAnulacion") == null)
+                detalle.Add(new XElement("MotivoAnulacion", motivo ?? ""));
+            else
+                detalle.Element("MotivoAnulacion").Value = motivo ?? "";
+
+            _doc.Save(_ruta);
+        }
+
+
+        public void MarcarDetallePreparado(long idComanda, int linea)
+        {
+            CargarXml();
+            var nodoComanda = _doc.Root.Element("Comandas")
+                .Elements("Comanda")
+                .FirstOrDefault(x => (long)x.Attribute("Id") == idComanda);
+            if (nodoComanda == null) return;
+
+            var detalle = nodoComanda.Element("Detalles")?
+                .Elements("Detalle")
+                .FirstOrDefault(d => ((int?)d.Element("Linea") ?? 0) == linea);
+
+            if (detalle == null) return;
+
+            if (detalle.Element("Preparado") == null)
+                detalle.Add(new XElement("Preparado", "true"));
+            else
+                detalle.Element("Preparado").Value = "true";
+
+            _doc.Save(_ruta);
+        }
+
         public BEComanda ObtenerPorId(long idComanda)
         {
             CargarXml();
@@ -155,23 +281,35 @@ namespace MPP
                 Detalles = new List<BEDetalleComanda>()
             };
 
+            var xAudit = xCom.Element("AuditCancelacion");
+            if (xAudit != null)
+            {
+                com.MotivoCancelacion = (string)xAudit.Element("Motivo");
+                com.UsuarioCancelacion = (string)xAudit.Element("Usuario");
+            }
+
+
             var xDet = xCom.Element("Detalles");
             if (xDet != null)
             {
                 com.Detalles = xDet.Elements("Detalle")
                     .Select(d => new BEDetalleComanda
                     {
+                        Linea = (int?)d.Element("Linea") ?? 0,
                         Id_Producto = (long)d.Element("Id_Producto"),
                         Descripcion = (string)d.Element("Descripcion"),
                         Cantidad = (int)d.Element("Cantidad"),
-                        PrecioUnitario = (decimal)d.Element("PrecioUnitario")
+                        PrecioUnitario = (decimal)d.Element("PrecioUnitario"),
+                        Enviado = (bool?)d.Element("Enviado") ?? false,
+                        Preparado = (bool?)d.Element("Preparado") ?? false,
+                        Anulado = (bool?)d.Element("Anulado") ?? false,
+                        MotivoAnulacion = (string)d.Element("MotivoAnulacion")
+
                     }).ToList();
             }
 
             return com;
         }
-
-        // 👇 ya lo teníamos en la versión anterior del listado, lo dejo por si lo usás en el FormComandas
         public List<BEComanda> Listar(DateTime? fechaFiltro = null, string estado = null)
         {
             CargarXml();
@@ -197,15 +335,23 @@ namespace MPP
                     FechaHora = (DateTime)x.Element("Fecha"),
                     Mozo = (string)x.Element("Mozo"),
                     Estado = (string)x.Element("Estado"),
+                    MotivoCancelacion = x.Element("AuditCancelacion") != null ? (string)x.Element("AuditCancelacion").Element("Motivo") : null,
+                    UsuarioCancelacion = x.Element("AuditCancelacion") != null ? (string)x.Element("AuditCancelacion").Element("Usuario") : null,
                     Detalles = x.Element("Detalles") == null
                         ? new List<BEDetalleComanda>()
                         : x.Element("Detalles").Elements("Detalle")
                             .Select(d => new BEDetalleComanda
                             {
+                                Linea = (int?)d.Element("Linea") ?? 0,
                                 Id_Producto = (long)d.Element("Id_Producto"),
                                 Descripcion = (string)d.Element("Descripcion"),
                                 Cantidad = (int)d.Element("Cantidad"),
-                                PrecioUnitario = (decimal)d.Element("PrecioUnitario")
+                                PrecioUnitario = (decimal)d.Element("PrecioUnitario"),
+                                Enviado = (bool?)d.Element("Enviado") ?? false,
+                                Preparado = (bool?)d.Element("Preparado") ?? false,
+                                Anulado = (bool?)d.Element("Anulado") ?? false,
+                                MotivoAnulacion = (string)d.Element("MotivoAnulacion")
+
                             }).ToList()
                 })
                 .OrderByDescending(c => c.FechaHora)
@@ -213,5 +359,64 @@ namespace MPP
 
             return lista;
         }
+        public void MarcarDetallesEnviados(long idComanda)
+        {
+            CargarXml();
+            var nodoComanda = _doc.Root.Element("Comandas")
+                .Elements("Comanda")
+                .FirstOrDefault(x => (long)x.Attribute("Id") == idComanda);
+            if (nodoComanda == null) return;
+
+            var detalles = nodoComanda.Element("Detalles")?.Elements("Detalle");
+            if (detalles == null) return;
+
+            foreach (var d in detalles)
+            {
+                var enviado = (bool?)d.Element("Enviado") ?? false;
+                if (!enviado)
+                    d.Element("Enviado").Value = "true";
+            }
+
+            _doc.Save(_ruta);
+        }
+        public bool CancelarComanda(long idComanda, string usuario, string motivo)
+        {
+            CargarXml();
+
+            var nodo = _doc.Root.Element("Comandas")
+                .Elements("Comanda")
+                .FirstOrDefault(x => (long)x.Attribute("Id") == idComanda);
+
+            if (nodo == null)
+                throw new Exception("No se encontró la comanda a cancelar.");
+
+            var xEstado = nodo.Element("Estado");
+            if (xEstado != null) xEstado.Value = "Cancelada";
+            else nodo.Add(new XElement("Estado", "Cancelada"));
+
+            var xAudit = nodo.Element("AuditCancelacion");
+            if (xAudit == null)
+            {
+                xAudit = new XElement("AuditCancelacion");
+                nodo.Add(xAudit);
+            }
+            xAudit.RemoveAll();
+            xAudit.Add(new XElement("Motivo", motivo ?? string.Empty));
+            xAudit.Add(new XElement("Usuario", usuario ?? string.Empty));
+            xAudit.Add(new XElement("Fecha", DateTime.Now));
+
+            _doc.Save(_ruta);
+            return true;
+        }
+
+
+        public List<BEDetalleComanda> ListarDetallesNoEnviados(long idComanda)
+        {
+            var com = ObtenerPorId(idComanda);
+            if (com == null) return new List<BEDetalleComanda>();
+
+            return com.Detalles.Where(d => !d.Enviado).ToList();
+        }
+
     }
 }

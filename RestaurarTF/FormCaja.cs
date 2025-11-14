@@ -33,12 +33,24 @@ namespace RestaurarTF
                     lblEstado.Text = "Caja de hoy: NO ABIERTA";
                     btnAbrir.Enabled = true;
                     btnCerrar.Enabled = false;
+                    txtMontoInicial.Text = "0";
                 }
                 else
                 {
                     lblEstado.Text = $"Caja de hoy: {caja.Estado} - Apertura: {caja.Apertura}";
-                    btnAbrir.Enabled = false;
-                    btnCerrar.Enabled = (caja.Estado == "Abierta");
+
+                    if (caja.Estado == "Abierta")
+                    {
+                        btnAbrir.Enabled = false;
+                        btnCerrar.Enabled = true;
+                    }
+                    else
+                    {
+                        btnAbrir.Enabled = true;
+                        btnCerrar.Enabled = false;
+
+                        txtMontoInicial.Text = caja.MontoFinal.ToString("N2");
+                    }
                 }
             }
             catch (Exception ex)
@@ -46,6 +58,7 @@ namespace RestaurarTF
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private void CargarCobrosPendientes()
         {
@@ -119,7 +132,7 @@ namespace RestaurarTF
                 long idCobro = Convert.ToInt64(dgvCobros.CurrentRow.Cells["Id"].Value);
                 _bll.RendirCobro(idCobro);
                 CargarCobrosPendientes();
-                CargarMovimientos(); // 👈 ahora ves el ingreso
+                CargarMovimientos(); 
                 MessageBox.Show("Cobro rendido a caja.");
             }
             catch (Exception ex)
@@ -132,6 +145,34 @@ namespace RestaurarTF
         {
             try
             {
+                var (cobrosNoRendidos, facturasSinCobro) = _bll.GetPendientesDeCierreHoy();
+
+                if (cobrosNoRendidos.Any() || facturasSinCobro.Any())
+                {
+                    string msg = "No se puede cerrar la caja.\n";
+
+                    if (cobrosNoRendidos.Any())
+                    {
+                        msg += "\nCobros de mozo sin rendir:\n";
+                        foreach (var c in cobrosNoRendidos)
+                        {
+                            msg += $"- Comanda {c.Id_Comanda} | Mozo: {c.Mozo} | Importe: {c.Importe:N2}\n";
+                        }
+                    }
+
+                    if (facturasSinCobro.Any())
+                    {
+                        msg += "\nFacturas del día sin cobro registrado:\n";
+                        foreach (var f in facturasSinCobro)
+                        {
+                            msg += $"- Comanda {f.Id_Comanda} | Factura N° {f.Numero} | Total: {f.Total:N2}\n";
+                        }
+                    }
+
+                    MessageBox.Show(msg, "Pendientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 _bll.CerrarCaja();
                 RefrescarEstado();
                 CargarMovimientos();

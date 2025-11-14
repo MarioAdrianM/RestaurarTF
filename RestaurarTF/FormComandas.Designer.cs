@@ -160,6 +160,19 @@
             this.btnFacturar.UseVisualStyleBackColor = true;
             this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
+            // btnPendientes
+            // 
+            this.btnPendientes = new System.Windows.Forms.Button();
+            this.btnPendientes.Location = new System.Drawing.Point(446, 10);
+            this.btnPendientes.Name = "btnPendientes";
+            this.btnPendientes.Size = new System.Drawing.Size(140, 23);
+            this.btnPendientes.TabIndex = 8;
+            this.btnPendientes.Text = "Pendientes de facturar";
+            this.btnPendientes.UseVisualStyleBackColor = true;
+            this.btnPendientes.Click += new System.EventHandler(this.btnPendientes_Click);
+            this.Controls.Add(this.btnPendientes);
+
+            // 
             // FormComandas
             // 
             this.ClientSize = new System.Drawing.Size(634, 369);
@@ -195,5 +208,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn colMozo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.Button btnPendientes;
+
     }
 }

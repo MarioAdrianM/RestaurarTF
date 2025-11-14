@@ -28,7 +28,6 @@ namespace RestaurarTF
         {
             try
             {
-                // traemos lo pendiente desde BLLCobroMozo (esto sí)
                 List<BECobroMozo> lista = _bllCobro.ListarNoRendidos();
                 dgvCobros.AutoGenerateColumns = false;
                 dgvCobros.DataSource = lista;
@@ -59,7 +58,6 @@ namespace RestaurarTF
                 {
                     bool seleccionado = false;
 
-                    // el nombre de la col en el designer era colSeleccionar
                     if (row.Cells["colSeleccionar"] is DataGridViewCheckBoxCell chk &&
                         chk.Value != null &&
                         chk.Value is bool &&
@@ -72,7 +70,6 @@ namespace RestaurarTF
                     {
                         long idCobro = Convert.ToInt64(row.Cells["colId"].Value);
 
-                        // 👇 acá va por caja, no directo al MPP
                         _bllCaja.RendirCobro(idCobro);
 
                         rendidos++;
@@ -86,7 +83,7 @@ namespace RestaurarTF
                 }
 
                 MessageBox.Show($"Se rindieron {rendidos} cobros.");
-                CargarGrilla(); // refresca lo pendiente
+                CargarGrilla(); 
             }
             catch (Exception ex)
             {

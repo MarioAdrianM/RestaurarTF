@@ -39,7 +39,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(373, 204);
+            this.txtPassword.Location = new System.Drawing.Point(79, 55);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(124, 20);
             this.txtPassword.TabIndex = 5;
@@ -48,7 +48,7 @@
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(303, 207);
+            this.lblPassword.Location = new System.Drawing.Point(9, 58);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(53, 13);
             this.lblPassword.TabIndex = 6;
@@ -56,7 +56,7 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(373, 166);
+            this.txtUsuario.Location = new System.Drawing.Point(79, 17);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(124, 20);
             this.txtUsuario.TabIndex = 3;
@@ -64,7 +64,7 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(313, 169);
+            this.lblUsuario.Location = new System.Drawing.Point(19, 20);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 4;
@@ -73,7 +73,7 @@
             // chkMostrarPass
             // 
             this.chkMostrarPass.AutoSize = true;
-            this.chkMostrarPass.Location = new System.Drawing.Point(548, 206);
+            this.chkMostrarPass.Location = new System.Drawing.Point(79, 81);
             this.chkMostrarPass.Name = "chkMostrarPass";
             this.chkMostrarPass.Size = new System.Drawing.Size(118, 17);
             this.chkMostrarPass.TabIndex = 8;
@@ -83,7 +83,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(465, 320);
+            this.btnSalir.Location = new System.Drawing.Point(146, 133);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(78, 39);
@@ -94,7 +94,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(278, 320);
+            this.btnLogin.Location = new System.Drawing.Point(22, 133);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(78, 39);
@@ -107,7 +107,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(238, 187);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.chkMostrarPass);
@@ -115,6 +115,8 @@
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblUsuario);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login - Restaurar";

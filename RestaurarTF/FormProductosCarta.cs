@@ -11,24 +11,24 @@ namespace RestaurarTF
     public partial class FormProductosCarta : Form
     {
         private readonly BLLProductoCarta _bll;
+        private readonly BLLCategoriaProducto _bllCat;
         private BEProductoCarta _actual;
-
         public FormProductosCarta()
         {
             InitializeComponent();
             _bll = new BLLProductoCarta();
+            _bllCat = new BLLCategoriaProducto();
         }
 
         private void FormProductosCarta_Load(object sender, EventArgs e)
         {
             _bll.CrearXML();
+            _bllCat.CrearXML();
 
-            cboCategoria.Items.Clear();
-            cboCategoria.Items.Add("Plato");
-            cboCategoria.Items.Add("Bebida");
-            cboCategoria.Items.Add("Postre");
-            cboCategoria.Items.Add("Otro");
-            cboCategoria.SelectedIndex = 0;
+            var categorias = _bllCat.ListarTodo().Where(c => c.Activo).ToList();
+            cboCategoria.DataSource = categorias;
+            cboCategoria.DisplayMember = "Nombre";
+            cboCategoria.ValueMember = "Id";
 
             CargarGrilla();
             ModoEdicion(false);
@@ -38,13 +38,13 @@ namespace RestaurarTF
         {
             List<BEProductoCarta> lista = _bll.ListarTodo();
 
-            dgvProductos.AutoGenerateColumns = false;
+            dgvProductos.AutoGenerateColumns = true; 
             dgvProductos.DataSource = lista
                 .Select(p => new
                 {
                     p.Id,
                     p.Nombre,
-                    p.Categoria,
+                    Categoria = p.Categoria != null ? p.Categoria.Nombre : "",
                     p.Descripcion,
                     p.Precio,
                     p.Activo
@@ -53,6 +53,7 @@ namespace RestaurarTF
 
             this.Text = $"Productos de la carta ({lista.Count})";
         }
+
 
         private void ModoEdicion(bool edicion)
         {
@@ -70,7 +71,9 @@ namespace RestaurarTF
             txtNombre.Text = "";
             txtDescripcion.Text = "";
             txtPrecio.Text = "0";
-            cboCategoria.SelectedIndex = 0;
+            if (cboCategoria.Items.Count > 0)
+                cboCategoria.SelectedIndex = 0;
+
             chkActivo.Checked = true;
             ModoEdicion(true);
             txtNombre.Focus();
@@ -98,10 +101,12 @@ namespace RestaurarTF
 
                 var prod = _actual ?? new BEProductoCarta();
                 prod.Nombre = txtNombre.Text.Trim();
-                prod.Categoria = cboCategoria.SelectedItem?.ToString() ?? "";
                 prod.Descripcion = txtDescripcion.Text.Trim();
                 prod.Precio = precio;
                 prod.Activo = chkActivo.Checked;
+
+                var catSel = cboCategoria.SelectedItem as BECategoriaProducto;
+                prod.Categoria = catSel;
 
                 _bll.Guardar(prod);
 
@@ -135,8 +140,15 @@ namespace RestaurarTF
             txtPrecio.Text = prod.Precio.ToString("0.##");
             chkActivo.Checked = prod.Activo;
 
-            int idx = cboCategoria.Items.IndexOf(prod.Categoria);
-            if (idx >= 0) cboCategoria.SelectedIndex = idx;
+            if (prod.Categoria != null)
+            {
+                var listaCombo = (List<BECategoriaProducto>)cboCategoria.DataSource;
+                var cat = listaCombo.FirstOrDefault(c => c.Id == prod.Categoria.Id);
+                if (cat != null)
+                {
+                    cboCategoria.SelectedValue = cat.Id;
+                }
+            }
 
             ModoEdicion(true);
         }
@@ -152,10 +164,18 @@ namespace RestaurarTF
             if (MessageBox.Show("¿Eliminar producto?", "Confirmar",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                _bll.Eliminar(prod);
-                _actual = null;
-                CargarGrilla();
-                ModoEdicion(false);
+                try
+                {
+                    _bll.Eliminar(prod);
+                    _actual = null;
+                    CargarGrilla();
+                    ModoEdicion(false);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "No se puede eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
         }
     }

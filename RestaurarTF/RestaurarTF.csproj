@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,11 +53,41 @@
     <Compile Include="FormABMUsuario.Designer.cs">
       <DependentUpon>FormABMUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAnularItemComanda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAnularItemComanda.Designer.cs">
+      <DependentUpon>FormAnularItemComanda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAuditoriaOperaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAuditoriaOperaciones.Designer.cs">
+      <DependentUpon>FormAuditoriaOperaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBackupRestore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBackupRestore.Designer.cs">
+      <DependentUpon>FormBackupRestore.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormCaja.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormCaja.Designer.cs">
       <DependentUpon>FormCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCambiarPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCambiarPassword.Designer.cs">
+      <DependentUpon>FormCambiarPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCategoriasProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCategoriasProducto.Designer.cs">
+      <DependentUpon>FormCategoriasProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="FormCobroMozo.cs">
       <SubType>Form</SubType>
@@ -82,11 +113,47 @@
     <Compile Include="FormComandaMesa.Designer.cs">
       <DependentUpon>FormComandaMesa.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCompras.Designer.cs">
+      <DependentUpon>FormCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboardCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboardCompras.Designer.cs">
+      <DependentUpon>FormDashboardCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboardOperacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboardOperacion.Designer.cs">
+      <DependentUpon>FormDashboardOperacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDashboardVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDashboardVentas.Designer.cs">
+      <DependentUpon>FormDashboardVentas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormFactura.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormFactura.Designer.cs">
       <DependentUpon>FormFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFacturasConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFacturasConsulta.Designer.cs">
+      <DependentUpon>FormFacturasConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListaEspera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListaEspera.Designer.cs">
+      <DependentUpon>FormListaEspera.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -100,6 +167,12 @@
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMotivoCancelacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMotivoCancelacion.Designer.cs">
+      <DependentUpon>FormMotivoCancelacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPlanoMesas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +184,12 @@
     </Compile>
     <Compile Include="FormProductosCarta.Designer.cs">
       <DependentUpon>FormProductosCarta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepcion.Designer.cs">
+      <DependentUpon>FormRecepcion.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRendicionCobrosMozo.cs">
       <SubType>Form</SubType>
@@ -124,25 +203,40 @@
     <Compile Include="FormReservas.Designer.cs">
       <DependentUpon>FormReservas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormResumenCobrosMozo.cs">
+    <Compile Include="FormRolesPermisos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormResumenCobrosMozo.Designer.cs">
-      <DependentUpon>FormResumenCobrosMozo.cs</DependentUpon>
+    <Compile Include="FormRolesPermisos.Designer.cs">
+      <DependentUpon>FormRolesPermisos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSeguridad.cs">
+    <Compile Include="FormSalonMozo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSeguridad.Designer.cs">
-      <DependentUpon>FormSeguridad.cs</DependentUpon>
+    <Compile Include="FormSalonMozo.Designer.cs">
+      <DependentUpon>FormSalonMozo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormABMUsuario.resx">
       <DependentUpon>FormABMUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormAnularItemComanda.resx">
+      <DependentUpon>FormAnularItemComanda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAuditoriaOperaciones.resx">
+      <DependentUpon>FormAuditoriaOperaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBackupRestore.resx">
+      <DependentUpon>FormBackupRestore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCaja.resx">
       <DependentUpon>FormCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCambiarPassword.resx">
+      <DependentUpon>FormCambiarPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCategoriasProducto.resx">
+      <DependentUpon>FormCategoriasProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormCobroMozo.resx">
       <DependentUpon>FormCobroMozo.cs</DependentUpon>
@@ -153,8 +247,26 @@
     <EmbeddedResource Include="FormComandaMesa.resx">
       <DependentUpon>FormComandaMesa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCompras.resx">
+      <DependentUpon>FormCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboardCompras.resx">
+      <DependentUpon>FormDashboardCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboardOperacion.resx">
+      <DependentUpon>FormDashboardOperacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDashboardVentas.resx">
+      <DependentUpon>FormDashboardVentas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFactura.resx">
       <DependentUpon>FormFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFacturasConsulta.resx">
+      <DependentUpon>FormFacturasConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormListaEspera.resx">
+      <DependentUpon>FormListaEspera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -162,11 +274,17 @@
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormMotivoCancelacion.resx">
+      <DependentUpon>FormMotivoCancelacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPlanoMesas.resx">
       <DependentUpon>FormPlanoMesas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProductosCarta.resx">
       <DependentUpon>FormProductosCarta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecepcion.resx">
+      <DependentUpon>FormRecepcion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRendicionCobrosMozo.resx">
       <DependentUpon>FormRendicionCobrosMozo.cs</DependentUpon>
@@ -174,11 +292,11 @@
     <EmbeddedResource Include="FormReservas.resx">
       <DependentUpon>FormReservas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormResumenCobrosMozo.resx">
-      <DependentUpon>FormResumenCobrosMozo.cs</DependentUpon>
+    <EmbeddedResource Include="FormRolesPermisos.resx">
+      <DependentUpon>FormRolesPermisos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSeguridad.resx">
-      <DependentUpon>FormSeguridad.cs</DependentUpon>
+    <EmbeddedResource Include="FormSalonMozo.resx">
+      <DependentUpon>FormSalonMozo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

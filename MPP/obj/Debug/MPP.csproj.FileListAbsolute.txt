@@ -3,11 +3,15 @@ C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Abstraccion.dll
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Backup.dll
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\BE.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\itextsharp.dll
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Seguridad.dll
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Abstraccion.pdb
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Backup.pdb
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\BE.pdb
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\Seguridad.pdb
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\bin\Debug\itextsharp.xml
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\obj\Debug\MPP.csproj.AssemblyReference.cache
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\obj\Debug\MPP.csproj.CoreCompileInputs.cache
 C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\MPP\obj\Debug\MPP.csproj.Up2Date

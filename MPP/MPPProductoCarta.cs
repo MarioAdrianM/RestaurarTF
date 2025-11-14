@@ -17,11 +17,9 @@ namespace MPP
 
         public MPPProductoCarta()
         {
-            // usa TU gestor, como mesa
             _ruta = GestorCarpeta.UbicacionBD("BD.Xml");
         }
 
-        // mismo concepto que CrearXMLSiNoExiste de mesas
         private void CrearXMLSiNoExiste()
         {
             if (!File.Exists(_ruta))
@@ -50,25 +48,24 @@ namespace MPP
             return true;
         }
 
-        // la interfaz tuya devuelve bool, pero tu ejemplo de mesa devolvía long.
-        // lo dejo bool como en IGestor, pero el cuerpo es igual al de mesa.
         public bool Guardar(BEProductoCarta o)
         {
-            CrearXMLSiNoExiste();  // carga _doc
+            CrearXMLSiNoExiste();
+
+            long catId = o.Categoria != null ? o.Categoria.Id : 0;
+            string catNombre = o.Categoria != null ? o.Categoria.Nombre : "";
 
             if (o.Id == 0)
             {
-                // ALTA
                 o.Id = ObtenerUltimoId() + 1;
 
                 var xProd = new XElement("ProductoCarta",
                     new XAttribute("Id", o.Id),
                     new XElement("Nombre", o.Nombre ?? ""),
-                    new XElement("Categoria", o.Categoria ?? ""),
+                    new XElement("CategoriaId", catId),
                     new XElement("Descripcion", o.Descripcion ?? "")
                 );
 
-                // precio siempre como string invariante
                 xProd.Add(new XElement("Precio", o.Precio.ToString(CultureInfo.InvariantCulture)));
                 xProd.Add(new XElement("Activo", o.Activo));
 
@@ -76,7 +73,6 @@ namespace MPP
             }
             else
             {
-                // MODIFICACIÓN
                 var xProd = _doc.Root.Element("ProductosCarta").Elements("ProductoCarta")
                     .FirstOrDefault(x => (long)x.Attribute("Id") == o.Id);
 
@@ -84,7 +80,17 @@ namespace MPP
                     throw new Exception("No se encontró el producto para modificar.");
 
                 xProd.Element("Nombre").Value = o.Nombre ?? "";
-                xProd.Element("Categoria").Value = o.Categoria ?? "";
+
+                if (xProd.Element("CategoriaId") != null)
+                    xProd.Element("CategoriaId").Value = catId.ToString();
+                else
+                    xProd.Add(new XElement("CategoriaId", catId));
+
+                if (xProd.Element("CategoriaNombre") != null)
+                    xProd.Element("CategoriaNombre").Value = catNombre;
+                else
+                    xProd.Add(new XElement("CategoriaNombre", catNombre));
+
                 xProd.Element("Descripcion").Value = o.Descripcion ?? "";
 
                 xProd.Element("Precio").Value = o.Precio.ToString(CultureInfo.InvariantCulture);
@@ -121,11 +127,31 @@ namespace MPP
                     if (!decimal.TryParse(precioStr, NumberStyles.Any, CultureInfo.InvariantCulture, out precio))
                         decimal.TryParse(precioStr, NumberStyles.Any, new CultureInfo("es-AR"), out precio);
 
+                    long catId = 0;
+                    long.TryParse((string)x.Element("CategoriaId") ?? "0", out catId);
+                    string catNombre = (string)x.Element("CategoriaNombre") ?? "";
+
+                    if (string.IsNullOrEmpty(catNombre) && x.Element("Categoria") != null)
+                    {
+                        catNombre = (string)x.Element("Categoria");
+                    }
+
+                    BECategoriaProducto cat = null;
+                    if (catId > 0 || !string.IsNullOrEmpty(catNombre))
+                    {
+                        cat = new BECategoriaProducto
+                        {
+                            Id = catId,
+                            Nombre = catNombre,
+                            Activo = true
+                        };
+                    }
+
                     return new BEProductoCarta
                     {
                         Id = (long)x.Attribute("Id"),
                         Nombre = (string)x.Element("Nombre"),
-                        Categoria = (string)x.Element("Categoria"),
+                        Categoria = cat,
                         Descripcion = (string)x.Element("Descripcion"),
                         Precio = precio,
                         Activo = (bool)x.Element("Activo")
@@ -142,11 +168,12 @@ namespace MPP
         public bool VerificarExistenciaObjeto(BEProductoCarta o)
         {
             CrearXMLSiNoExiste();
+            string catNombre = o.Categoria != null ? o.Categoria.Nombre : "";
 
             return _doc.Root.Element("ProductosCarta").Elements("ProductoCarta")
                 .Any(x =>
                     string.Equals((string)x.Element("Nombre"), o.Nombre ?? "", StringComparison.OrdinalIgnoreCase) &&
-                    string.Equals((string)x.Element("Categoria"), o.Categoria ?? "", StringComparison.OrdinalIgnoreCase)
+                    string.Equals((string)x.Element("CategoriaNombre"), catNombre ?? "", StringComparison.OrdinalIgnoreCase)
                 );
         }
 

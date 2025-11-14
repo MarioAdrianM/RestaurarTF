@@ -14,13 +14,10 @@ namespace BLL_Negocio
 
         MPPBitacora oMMPBitacora;
 
-        #region "Constructor"
+       
 
         public BLLBitacora() { oMMPBitacora = new MPPBitacora(); }
 
-        #endregion
-
-        #region "Métodos"
 
         public bool CrearXML() { throw new NotImplementedException(); }
 
@@ -30,7 +27,7 @@ namespace BLL_Negocio
 
         public BEBitacora ListarObjeto(BEBitacora objeto) { throw new NotImplementedException(); }
 
-        public List<BEBitacora> ListarTodo() { return oMMPBitacora.ListarTodo();}
+        public List<BEBitacora> ListarTodo() { return oMMPBitacora.ListarTodo(); }
 
         public List<BEBitacora> ListarTodoPorTipo(bool pTipo) { return oMMPBitacora.ListarTodoPorTipo(pTipo); }
 
@@ -38,6 +35,6 @@ namespace BLL_Negocio
 
         public bool VerificarExistenciaObjeto(BEBitacora objeto) { throw new NotImplementedException(); }
 
-        #endregion
+      
     }
 }

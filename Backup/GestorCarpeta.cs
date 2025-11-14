@@ -15,14 +15,14 @@ namespace Backup
         {
             try
             {
-                //Obtengo la Dirección de la ruta actual de FordFox V2.0:
+                
                 string ruta = AppDomain.CurrentDomain.BaseDirectory;
-                //Conbino la direccion de la ruta anterior con la Carpeta Backup:
+               
                 string rutaBackup = Path.Combine(ruta, "Backup");
-                //Verifico si no existe la carpeta Backup:
+                
                 if(!Directory.Exists(rutaBackup))
                 {
-                    //Si no existe, la creo:
+                    
                     Directory.CreateDirectory(rutaBackup);
                 }
 
@@ -35,14 +35,14 @@ namespace Backup
         {
             try
             {
-                //Obtengo la Dirección de la ruta actual de FordFox V2.0:
+                
                 string ruta = AppDomain.CurrentDomain.BaseDirectory;
-                //Conbino la direccion de la ruta anterior con la Carpeta Restore:
+                
                 string rutaBitacora = Path.Combine(ruta, "Bitacora");
-                //Verifico si no existe la carpeta Restore:
+                
                 if (!Directory.Exists(rutaBitacora))
                 {
-                    //Si no existe, la creo:
+                   
                     Directory.CreateDirectory(rutaBitacora);
                 }
             }
@@ -53,14 +53,14 @@ namespace Backup
         {
             try
             {
-                //Obtengo la Dirección de la ruta actual de FordFox V2.0:
+                
                 string ruta = AppDomain.CurrentDomain.BaseDirectory;
-                //Conbino la direccion de la ruta anterior con la BD:
+                
                 string rutaBD = Path.Combine(ruta, "BaseDatos");
-                //Verifico si no existe la carpeta BD:
+                
                 if (!Directory.Exists(rutaBD))
                 {
-                    //Si no existe, la creo:
+                    
                     Directory.CreateDirectory(rutaBD);
                 }
             }
@@ -71,14 +71,10 @@ namespace Backup
         {
             try
             {
-                // Obtengo la Dirección de la ruta actual de FordFox V2.0
                 string ruta = AppDomain.CurrentDomain.BaseDirectory;
-                // Combino la direccion de la ruta anterior con la carpeta de PDFs
                 string rutaPDF = Path.Combine(ruta, nombreCarpeta);
-                // Verifico si no existe la carpeta PDF
                 if (!Directory.Exists(rutaPDF))
                 {
-                    // Si no existe, la creo
                     Directory.CreateDirectory(rutaPDF);
                 }
             }
@@ -89,11 +85,8 @@ namespace Backup
         {
             try
             {
-                //Obtengo la Dirección de la ruta actual de FordFox V2.0:
                 string ruta = AppDomain.CurrentDomain.BaseDirectory;
-                //Conbino la direccion de la ruta anterior con la BD:
                 string rutaInforme = Path.Combine(ruta, "Informes");
-                //Verifico si no existe la carpeta Informes:
                 if (!Directory.Exists(rutaInforme))
                 {
                     Directory.CreateDirectory(rutaInforme);

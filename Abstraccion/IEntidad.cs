@@ -7,13 +7,5 @@ using System.Threading.Tasks;
 namespace Abstraccion
 {
     public interface IEntidad
-    {
-
-        #region "Propiedades"
-
-        long Id { get; set; }
-
-        #endregion
-
-    }
+    {long Id { get; set; }}
 }

@@ -5,8 +5,9 @@ namespace BE
     public enum EstadoReserva
     {
         Pendiente = 0,
-        Cumplida = 1,
-        Cancelada = 2
+        Atendida = 1,
+        Cancelada = 2,
+        Cerrada = 3
     }
 
     public class BEReserva : BEEntidad
@@ -18,5 +19,7 @@ namespace BE
         public EstadoReserva Estado { get; set; }
         public string UsuarioCreador { get; set; }
         public string Observaciones { get; set; }
+        public string NombreCliente { get; set; }
+        public string Telefono { get; set; }
     }
 }

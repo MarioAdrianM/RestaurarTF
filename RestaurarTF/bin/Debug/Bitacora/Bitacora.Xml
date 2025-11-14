@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Bitacoras>
+    <bitacora Id="1">
+      <Detalle>backup</Detalle>
+      <Fecha_Registro>12/11/2025 22:17:18</Fecha_Registro>
+      <usuario Id="1" />
+    </bitacora>
+    <bitacora Id="2">
+      <Detalle>backup</Detalle>
+      <Fecha_Registro>12/11/2025 22:17:22</Fecha_Registro>
+      <usuario Id="1" />
+    </bitacora>
+    <bitacora Id="3">
+      <Detalle>backup</Detalle>
+      <Fecha_Registro>12/11/2025 22:17:24</Fecha_Registro>
+      <usuario Id="1" />
+    </bitacora>
+    <bitacora Id="4">
+      <Detalle>backup</Detalle>
+      <Fecha_Registro>12/11/2025 22:17:27</Fecha_Registro>
+      <usuario Id="1" />
+    </bitacora>
+    <bitacora Id="5">
+      <Detalle>restore</Detalle>
+      <Fecha_Registro>13/11/2025 16:34:46</Fecha_Registro>
+      <usuario Id="1" />
+    </bitacora>
+    <bitacora Id="6">
+      <Detalle>restore</Detalle>
+      <Fecha_Registro>13/11/2025 20:24:27</Fecha_Registro>
+      <usuario Id="1" />
+    </bitacora>
+    <bitacora Id="7">
+      <Detalle>backup</Detalle>
+      <Fecha_Registro>14/11/2025 02:41:07</Fecha_Registro>
+      <usuario Id="1" />
+    </bitacora>
+    <bitacora Id="8">
+      <Detalle>backup</Detalle>
+      <Fecha_Registro>14/11/2025 02:41:10</Fecha_Registro>
+      <usuario Id="1" />
+    </bitacora>
+    <bitacora Id="9">
+      <Detalle>backup</Detalle>
+      <Fecha_Registro>14/11/2025 02:41:14</Fecha_Registro>
+      <usuario Id="1" />
+    </bitacora>
+  </Bitacoras>
+</Root>

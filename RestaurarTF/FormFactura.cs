@@ -32,13 +32,20 @@ namespace RestaurarTF
                     this.Close();
                     return;
                 }
+                if (_comandaActual.Estado != BE.BEComanda.Estados.ParaFacturar)
+                {
+                    MessageBox.Show("La comanda todavía no fue solicitada para facturar por el mozo.");
+                    this.Close();
+                    return;
+                }
+
 
                 lblComanda.Text = "Comanda: " + _comandaActual.Id + " - Mesa: " + _comandaActual.Id_Mesa;
 
-                // importante: las columnas ya están en el designer
-                dgvDetalle.AutoGenerateColumns = false;
 
+                dgvDetalle.AutoGenerateColumns = false;
                 var detalleMostrar = _comandaActual.Detalles
+                    .Where(d => !d.Anulado) 
                     .Select(d => new
                     {
                         d.Descripcion,
@@ -65,8 +72,6 @@ namespace RestaurarTF
             {
                 string cliente = txtCliente.Text.Trim();
                 string cuit = txtCuit.Text.Trim();
-
-                // validaciones las hace la BLLFactura
                 var factura = _bllFactura.GenerarFacturaDesdeComanda(_idComanda, cliente, cuit);
                 long nro = _bllFactura.EmitirFactura(factura);
 

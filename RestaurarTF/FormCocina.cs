@@ -19,10 +19,38 @@ namespace RestaurarTF
         {
             CargarComandas();
         }
+        private void CargarDetalleComanda(long idComanda)
+        {
+            var com = _bll.ObtenerPorId(idComanda);
+            if (com == null)
+            {
+                dgvDetalles.DataSource = null;
+                return;
+            }
+
+            var pendientes = com.Detalles
+                .Where(d => d.Enviado && !d.Preparado)
+                .ToList();
+            var det = pendientes
+        .GroupBy(d => new { d.Descripcion, d.PrecioUnitario })
+        .Select(g => new
+        {
+            Producto = g.Key.Descripcion,
+            Cantidad = g.Sum(x => x.Cantidad),
+            P_Unit = g.Key.PrecioUnitario,
+            Subtotal = g.Sum(x => x.Cantidad * x.PrecioUnitario)
+        })
+        .OrderBy(x => x.Producto)
+        .ToList();
+
+            dgvDetalles.AutoGenerateColumns = true;
+            dgvDetalles.DataSource = det;
+        }
 
         private void CargarComandas()
         {
             var lista = _bll.ListarPendientesDeCocina();
+
             dgvComandas.AutoGenerateColumns = true;
             dgvComandas.DataSource = lista
                 .Select(c => new
@@ -34,9 +62,15 @@ namespace RestaurarTF
                     c.Estado
                 })
                 .ToList();
-
-            // limpiar detalle
-            dgvDetalles.DataSource = null;
+            if (dgvComandas.Rows.Count > 0)
+            {
+                var id = Convert.ToInt64(dgvComandas.Rows[0].Cells["Id"].Value);
+                CargarDetalleComanda(id);
+            }
+            else
+            {
+                dgvDetalles.DataSource = null;
+            }
         }
 
         private void dgvComandas_SelectionChanged(object sender, EventArgs e)
@@ -46,27 +80,7 @@ namespace RestaurarTF
                 if (dgvComandas.CurrentRow == null) return;
 
                 long idComanda = Convert.ToInt64(dgvComandas.CurrentRow.Cells["Id"].Value);
-
-                // traemos la comanda completa para ver sus detalles
-                var com = _bll.ObtenerPorId(idComanda);
-                if (com == null)
-                {
-                    dgvDetalles.DataSource = null;
-                    return;
-                }
-
-                var det = com.Detalles
-                    .Select(d => new
-                    {
-                        d.Descripcion,
-                        d.Cantidad,
-                        d.PrecioUnitario,
-                        Subtotal = d.Cantidad * d.PrecioUnitario
-                    })
-                    .ToList();
-
-                dgvDetalles.AutoGenerateColumns = true;
-                dgvDetalles.DataSource = det;
+                CargarDetalleComanda(idComanda);
             }
             catch (Exception ex)
             {
@@ -85,13 +99,18 @@ namespace RestaurarTF
                 }
 
                 long idComanda = Convert.ToInt64(dgvComandas.CurrentRow.Cells["Id"].Value);
-                _bll.MarcarLista(idComanda);
+                _bll.MarcarTodosPreparados(idComanda);
                 CargarComandas();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al marcar como lista: " + ex.Message);
             }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            CargarComandas();
         }
     }
 }

@@ -1,15 +1,13 @@
 ﻿using Backup;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MPP
 {
     public class MPPGestorBD
     {
         GestorBD gestorBD = new GestorBD();
+
         public bool CrearBackup()
         {
             try
@@ -18,7 +16,6 @@ namespace MPP
                 return true;
             }
             catch (Exception ex) { throw ex; }
-            finally { }
         }
 
         public bool CrearRestore(string nombreBackup)
@@ -26,23 +23,23 @@ namespace MPP
             try
             {
                 gestorBD.CrearRestore(nombreBackup);
-                return true;
+
+                return true;    
             }
             catch (Exception ex) { throw ex; }
-            finally { }
         }
 
         public List<string> ListarBackups()
         {
             try
             {
-                List<string> listaNombreBackups = new List<string>();
-                listaNombreBackups = gestorBD.ListarBackups();
-                if (listaNombreBackups != null) { return listaNombreBackups; }
-                else { return listaNombreBackups = null; }
+                GestorCarpeta.CrearCarpetaBackup();
+
+                List<string> listaNombreBackups = gestorBD.ListarBackups();
+
+                return listaNombreBackups ?? new List<string>();
             }
             catch (Exception ex) { throw ex; }
-            finally { }
         }
     }
 }

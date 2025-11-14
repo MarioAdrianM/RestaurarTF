@@ -13,6 +13,8 @@ namespace RestaurarTF
         BEUsuario _usuario;
         BLLUsuario _bllUsuario;
         List<BEPermiso> _permisos;
+        private BLLPermiso _bllPermiso;
+
 
         public FormMenu(BEUsuario usuarioLogueado)
         {
@@ -23,18 +25,18 @@ namespace RestaurarTF
             _usuario = usuarioLogueado;
             _bllUsuario = new BLLUsuario();
             _permisos = _bllUsuario.ListarTodosLosPermisosDelUsuario(_usuario);
+            _bllPermiso = new BLLPermiso();
         }
 
         private void FormMenu_Load(object sender, EventArgs e)
         {
+            SincronizarPermisosConMenu();
+            _permisos = _bllUsuario.ListarTodosLosPermisosDelUsuario(_usuario);
             OcultarTodosLosItemsDelMenu();
             if (_permisos != null && _permisos.Count > 0)
                 MostrarItemsSegunPermisos(_permisos);
         }
 
-        // =======================
-        //  ABRIR FORMULARIOS
-        // =======================
         private void mesasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var frm = new FormPlanoMesas();
@@ -68,21 +70,33 @@ namespace RestaurarTF
             Application.Exit();
         }
 
-        // =======================
-        //  OCULTAR (igual que FordFox)
-        // =======================
         private void OcultarTodosLosItemsDelMenu()
         {
             foreach (ToolStripItem item in menuStrip1.Items)
             {
                 if (item is ToolStripMenuItem menuItem)
                 {
-                    menuItem.Visible = false;
-                    if (menuItem.DropDownItems.Count > 0)
-                        OcultarItemsDelSubMenu(menuItem.DropDownItems);
+                    if (menuItem.Text.Equals("Sistema", StringComparison.OrdinalIgnoreCase))
+                    {
+                        menuItem.Visible = true;
+
+                        foreach (ToolStripItem sub in menuItem.DropDownItems)
+                        {
+                            if (sub is ToolStripMenuItem subMenuItem)
+                                subMenuItem.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        menuItem.Visible = false;
+                        if (menuItem.DropDownItems.Count > 0)
+                            OcultarItemsDelSubMenu(menuItem.DropDownItems);
+                    }
                 }
             }
         }
+
+
 
         private void OcultarItemsDelSubMenu(ToolStripItemCollection items)
         {
@@ -91,31 +105,38 @@ namespace RestaurarTF
                 if (item is ToolStripMenuItem subItem)
                 {
                     subItem.Visible = false;
-                    // si tuvieras más niveles, podés volver a llamar
-                    // if (subItem.DropDownItems.Count > 0) OcultarItemsDelSubMenu(subItem.DropDownItems);
                 }
             }
         }
 
-        // =======================
-        //  MOSTRAR SEGÚN PERMISOS
-        // =======================
         private void MostrarItemsSegunPermisos(List<BEPermiso> permisosUsuario)
         {
             foreach (ToolStripItem item in menuStrip1.Items)
             {
                 if (item is ToolStripMenuItem menuItem)
                 {
-                    // primero veo submenús
-                    if (menuItem.DropDownItems.Count > 0)
-                        MostrarSubItemsSegunPermisos(menuItem, permisosUsuario);
-
-                    // después veo si este propio item tiene permiso
-                    if (TienePermiso(menuItem.Text, permisosUsuario))
+                    if (menuItem.Text.Equals("Sistema", StringComparison.OrdinalIgnoreCase))
+                    {
                         menuItem.Visible = true;
+                        foreach (ToolStripItem sub in menuItem.DropDownItems)
+                        {
+                            if (sub is ToolStripMenuItem subMenuItem)
+                                subMenuItem.Visible = true;
+                        }
+                    }
+                    else
+                    {
+                        if (menuItem.DropDownItems.Count > 0)
+                            MostrarSubItemsSegunPermisos(menuItem, permisosUsuario);
+
+                        if (TienePermiso(menuItem.Text, permisosUsuario))
+                            menuItem.Visible = true;
+                    }
                 }
             }
         }
+
+
 
         private void MostrarSubItemsSegunPermisos(ToolStripMenuItem menuItem, List<BEPermiso> permisosUsuario)
         {
@@ -125,7 +146,6 @@ namespace RestaurarTF
             {
                 if (subItem is ToolStripMenuItem subMenuItem)
                 {
-                    // recursivo si hay más niveles
                     if (subMenuItem.DropDownItems.Count > 0)
                         MostrarSubItemsSegunPermisos(subMenuItem, permisosUsuario);
 
@@ -145,6 +165,36 @@ namespace RestaurarTF
         {
             return permisosUsuario.Any(p => p.Nombre.Equals(nombreItem, StringComparison.OrdinalIgnoreCase));
         }
+        private void SincronizarPermisosConMenu()
+        {
+            var permisosExistentes = _bllPermiso.ListarTodo() ?? new List<BEPermiso>();
+            RecorrerMenuYCrear(this.menuStrip1.Items, permisosExistentes);
+        }
+
+        private void RecorrerMenuYCrear(ToolStripItemCollection items, List<BEPermiso> permisosExistentes)
+        {
+            foreach (ToolStripItem item in items)
+            {
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    string nombre = menuItem.Text.Trim();
+                    bool existe = permisosExistentes.Any(p =>
+                        p.Nombre.Equals(nombre, StringComparison.OrdinalIgnoreCase));
+
+                    if (!existe)
+                    {
+                        var nuevo = new BEPermiso(0, nombre);
+                        _bllPermiso.Guardar(nuevo);
+                        permisosExistentes.Add(nuevo);
+                    }
+
+                    if (menuItem.DropDownItems != null && menuItem.DropDownItems.Count > 0)
+                    {
+                        RecorrerMenuYCrear(menuItem.DropDownItems, permisosExistentes);
+                    }
+                }
+            }
+        }
 
         private void cajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -162,14 +212,14 @@ namespace RestaurarTF
 
         private void seguridadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new FormSeguridad();
+            var frm = new FormRolesPermisos(this.menuStrip1);
             frm.MdiParent = this;
             frm.Show();
         }
 
         private void cobroDeMozoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var frm = new FormCobroMozo();
+            var frm = new FormCobroMozo(this._usuario.Usuario);
             frm.MdiParent = this;
             frm.Show();
         }
@@ -181,12 +231,6 @@ namespace RestaurarTF
             frm.Show();
         }
 
-        private void resumenDeCobrosDeMozoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var frm = new FormResumenCobrosMozo();
-            frm.MdiParent = this;
-            frm.Show();
-        }
 
         private void cocinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -207,6 +251,106 @@ namespace RestaurarTF
             
         }
 
-       
+        private void listaDeEsperaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormListaEspera();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void registroDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormCompras();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void salonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormSalonMozo(this._usuario.Usuario);
+            frm.MdiParent = this;  
+            frm.Show();
+        }
+
+        private void recepToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormRecepcion();
+            frm.MdiParent = this; 
+            frm.Show();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var login = new FormLogin();
+            login.Show();
+            this.Close();
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormCambiarPassword(_usuario);
+            frm.ShowDialog();
+        }
+
+        private void backupRestoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormBackupRestore(_usuario);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void categoriaProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormCategoriasProducto();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void anularItemComandaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormAnularItemComanda();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void consultarReimprimirFacturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormFacturasConsulta();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void dashboardVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormDashboardVentas();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void dashboardOperacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormDashboardOperacion();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void dashBoardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dashboardComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormDashboardCompras();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void auditoriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormAuditoriaOperaciones();
+            frm.MdiParent = this;   
+            frm.Show();
+        }
     }
 }

@@ -58,7 +58,6 @@ namespace MPP
 
                 if (rol.Id == 0)
                 {
-                    // alta
                     if (VerificarExistenciaObjeto(rol))
                         throw new Exception("Ya existe un rol con ese nombre.");
 
@@ -77,7 +76,7 @@ namespace MPP
                 }
                 else
                 {
-                    // modificación de nombre
+
                     var nodo = BDXML.Root.Element("Roles")
                         .Descendants("rol")
                         .FirstOrDefault(x => x.Attribute("Id").Value.Trim() == rol.Id.ToString().Trim());
@@ -85,7 +84,6 @@ namespace MPP
                     if (nodo == null)
                         throw new Exception("No se encontró el rol a modificar.");
 
-                    // no permitir cambiar el nombre de admin
                     if (nodo.Element("Nombre").Value.Trim().ToLower() == "admin")
                         throw new Exception("No se puede modificar el rol admin.");
 
@@ -112,11 +110,9 @@ namespace MPP
                 if (nodo == null)
                     throw new Exception("No se encontró el rol indicado.");
 
-                // no borrar admin
                 if (nodo.Element("Nombre").Value.Trim().ToLower() == "admin")
                     throw new Exception("No se puede eliminar el rol admin.");
 
-                // no borrar si está asociado a algún usuario
                 bool usadoPorUsuario = BDXML.Root.Element("Usuario_Roles")
                     .Descendants("usuario_rol")
                     .Any(x => x.Element("Id_Rol_Padre").Value.Trim() == rol.Id.ToString().Trim());
@@ -124,7 +120,6 @@ namespace MPP
                 if (usadoPorUsuario)
                     throw new Exception("No se puede eliminar un rol asociado a un usuario.");
 
-                // borrar también sus asociaciones de permisos
                 var asociaciones = BDXML.Root.Element("Rol_Permisos")
                     .Descendants("rol_permiso")
                     .Where(x => x.Element("Id_Rol").Value.Trim() == rol.Id.ToString().Trim())
@@ -212,8 +207,6 @@ namespace MPP
             catch { throw; }
         }
 
-        // ========== PERMISOS RELACIONADOS ==========
-
         public List<BEPermiso> ListarPermisos()
         {
             if (!CrearXML()) return new List<BEPermiso>();
@@ -266,7 +259,6 @@ namespace MPP
                 if (!CrearXML()) throw new Exception("No se pudo cargar el XML.");
                 BDXML = XDocument.Load(ruta);
 
-                // no duplicar
                 bool existe = BDXML.Root.Element("Rol_Permisos")
                     .Descendants("rol_permiso")
                     .Any(x =>
@@ -320,7 +312,6 @@ namespace MPP
 
             List<BEPermiso> lista = new List<BEPermiso>();
 
-            // filas de Rol_Permisos de ese rol
             var filas = BDXML.Root.Element("Rol_Permisos")
                 .Descendants("rol_permiso")
                 .Where(x => x.Element("Id_Rol").Value.Trim() == rol.Id.ToString().Trim())

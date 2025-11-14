@@ -43,16 +43,20 @@
   <ItemGroup>
     <Compile Include="BLLBitacora.cs" />
     <Compile Include="BLLCaja.cs" />
+    <Compile Include="BLLCategoriaProducto.cs" />
     <Compile Include="BLLCobroMozo.cs" />
     <Compile Include="BLLComanda.cs" />
     <Compile Include="bllcomposite\BLLPermiso.cs" />
     <Compile Include="bllcomposite\BLLRol.cs" />
+    <Compile Include="BLLCompra.cs" />
     <Compile Include="BLLFactura.cs" />
     <Compile Include="BLLGestorBD.cs" />
+    <Compile Include="BLLListaEspera.cs" />
     <Compile Include="BLLMesa.cs" />
     <Compile Include="BLLProductoCarta.cs" />
     <Compile Include="BLLReserva.cs" />
     <Compile Include="BLLUsuario.cs" />
+    <Compile Include="DashboardBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

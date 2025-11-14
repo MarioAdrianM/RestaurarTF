@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;  
 
 namespace MPP
 {
@@ -73,7 +75,6 @@ namespace MPP
 
                 if (oBEUsuario.Id == 0)
                 {
-                    // alta
                     if (VerificarExistenciaObjeto(oBEUsuario))
                         throw new Exception("Ya existe un usuario con ese nombre.");
 
@@ -97,7 +98,6 @@ namespace MPP
                 }
                 else
                 {
-                    // modificación
                     var usuarioXML = BDXML.Root.Element("Usuarios")
                         .Descendants("usuario")
                         .FirstOrDefault(x => x.Attribute("Id").Value.Trim() == oBEUsuario.Id.ToString().Trim());
@@ -132,7 +132,6 @@ namespace MPP
                 if (usuario == null)
                     throw new Exception("No se encontró el usuario.");
 
-                // no eliminar si tiene roles o permisos
                 bool tieneRoles = BDXML.Root.Element("Usuario_Roles")
                     .Descendants("usuario_rol")
                     .Any(x => x.Element("Id_Usuario").Value.Trim() == oBEUsuario.Id.ToString().Trim());
@@ -477,13 +476,11 @@ namespace MPP
 
                 List<BERol> lista = new List<BERol>();
 
-                // 1) buscar las filas de Usuario_Roles de ese usuario
                 var nodosUsuarioRol = BDXML.Root.Element("Usuario_Roles")
                     .Descendants("usuario_rol")
                     .Where(x => x.Element("Id_Usuario").Value.Trim() == oBEUsuario.Id.ToString().Trim())
                     .ToList();
 
-                // 2) por cada una, buscar el rol en <Roles>
                 foreach (var nodo in nodosUsuarioRol)
                 {
                     string idRol = nodo.Element("Id_Rol_Padre").Value.Trim();
@@ -540,10 +537,6 @@ namespace MPP
 
         #region Permisos efectivos del usuario (directos + por rol)
 
-        // =====================
-        //  NUEVO: listar permisos directos del usuario
-        //  lee <Usuario_Permisos> pero NO trae los de los roles
-        // =====================
         public List<BEPermiso> ListarPermisosDirectosDelUsuario(BEUsuario oBEUsuario)
         {
             if (!CrearXML() || !CrearXMLUsuarioPermiso()) throw new Exception("No se pudo cargar el XML");
@@ -578,7 +571,6 @@ namespace MPP
 
             var lista = new List<BEPermiso>();
 
-            // 1. permisos directos
             if (BDXML.Root.Element("Usuario_Permisos") != null)
             {
                 var directos = BDXML.Root.Element("Usuario_Permisos")
@@ -601,7 +593,6 @@ namespace MPP
                 }
             }
 
-            // 2. permisos por rol
             var rolesUsuario = ListarRolesDeUsuario(u);
             foreach (var rol in rolesUsuario)
             {
@@ -634,7 +625,6 @@ namespace MPP
 
         public BEUsuario ListarObjetoJerarquico(BEUsuario u)
         {
-            // versión simple: usuario + roles + permisos efectivos
             var usu = ListarObjetoPorId(u);
             if (usu == null) return null;
 

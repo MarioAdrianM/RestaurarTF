@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\restaurartf\\formreservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|solutionrelative:restaurartf\\formreservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|c:\\users\\slash\\desktop\\trabajo final\\mi_trabajo_final\\restaurartf\\restaurartf\\formdashboardventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|solutionrelative:restaurartf\\formdashboardventas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01F1230A-20D4-413E-9FC5-EFE38921497D}|MPP\\MPP.csproj|c:\\users\\slash\\desktop\\trabajo final\\mi_trabajo_final\\restaurartf\\mpp\\mppreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01F1230A-20D4-413E-9FC5-EFE38921497D}|MPP\\MPP.csproj|solutionrelative:mpp\\mppreserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|c:\\users\\slash\\desktop\\trabajo final\\mi_trabajo_final\\restaurartf\\restaurartf\\formdashboardoperacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|solutionrelative:restaurartf\\formdashboardoperacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\restaurartf\\formreservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|solutionrelative:restaurartf\\formreservas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01F1230A-20D4-413E-9FC5-EFE38921497D}|MPP\\MPP.csproj|C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\mpp\\mppproductocarta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{01F1230A-20D4-413E-9FC5-EFE38921497D}|MPP\\MPP.csproj|solutionrelative:mpp\\mppproductocarta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|c:\\users\\slash\\desktop\\trabajo final\\mi_trabajo_final\\restaurartf\\restaurartf\\formdashboardcompras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{7F82D15F-A333-4A39-A0E7-2C97F6046966}|RestaurarTF\\RestaurarTF.csproj|solutionrelative:restaurartf\\formdashboardcompras.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +22,43 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MPPProductoCarta.cs",
-              "DocumentMoniker": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\MPP\\MPPProductoCarta.cs",
-              "RelativeDocumentMoniker": "MPP\\MPPProductoCarta.cs",
-              "ToolTip": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\MPP\\MPPProductoCarta.cs",
-              "RelativeToolTip": "MPP\\MPPProductoCarta.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAA2wJgAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T16:23:43.798Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormReservas.cs",
-              "DocumentMoniker": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormReservas.cs",
-              "RelativeDocumentMoniker": "RestaurarTF\\FormReservas.cs",
-              "ToolTip": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormReservas.cs",
-              "RelativeToolTip": "RestaurarTF\\FormReservas.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAiwKEAAAANAAAAAAAAAA==",
+              "Title": "FormDashboardVentas.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormDashboardVentas.cs",
+              "RelativeDocumentMoniker": "RestaurarTF\\FormDashboardVentas.cs",
+              "ToolTip": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormDashboardVentas.cs [Dise\u00F1o]",
+              "RelativeToolTip": "RestaurarTF\\FormDashboardVentas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T18:18:01.505Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormReservas.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormReservas.cs",
-              "RelativeDocumentMoniker": "RestaurarTF\\FormReservas.cs",
-              "ToolTip": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormReservas.cs [Dise\u00F1o]",
-              "RelativeToolTip": "RestaurarTF\\FormReservas.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T18:17:59.185Z",
+              "WhenOpened": "2025-11-14T07:01:47.229Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MPPReserva.cs",
-              "DocumentMoniker": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\MPP\\MPPReserva.cs",
-              "RelativeDocumentMoniker": "MPP\\MPPReserva.cs",
-              "ToolTip": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\MPP\\MPPReserva.cs",
-              "RelativeToolTip": "MPP\\MPPReserva.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAIwBkAAAANAAAAAAAAAA==",
+              "Title": "FormDashboardOperacion.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormDashboardOperacion.cs",
+              "RelativeDocumentMoniker": "RestaurarTF\\FormDashboardOperacion.cs",
+              "ToolTip": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormDashboardOperacion.cs [Dise\u00F1o]",
+              "RelativeToolTip": "RestaurarTF\\FormDashboardOperacion.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-06T17:48:04.517Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T07:01:45.591Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormDashboardCompras.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormDashboardCompras.cs",
+              "RelativeDocumentMoniker": "RestaurarTF\\FormDashboardCompras.cs",
+              "ToolTip": "C:\\Users\\SLASH\\Desktop\\TRABAJO FINAL\\MI_TRABAJO_FINAL\\RestaurarTF\\RestaurarTF\\FormDashboardCompras.cs [Dise\u00F1o]",
+              "RelativeToolTip": "RestaurarTF\\FormDashboardCompras.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T07:01:43.734Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

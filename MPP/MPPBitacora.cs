@@ -24,26 +24,23 @@ namespace MPP
         {
             try
             {
-                //Verifico si existe el XML:
+                Backup.GestorCarpeta.CrearCarpetaBitacora();
                 if (!File.Exists(ruta))
                 {
-                    //Si no Existe, lo creo y agrego el Element Bitacora:
                     BDXML = new XDocument(new XElement("Root",
                     new XElement("Bitacoras")));
                     BDXML.Save(ruta);
                     return true;
                 }
-                //En caso de que Exista el XML:
                 else
                 {
                     BDXML = XDocument.Load(ruta);
-                    //Verifico que el XML se cargo correctamente:
                     if (BDXML != null)
                     {
                         XElement bitacoras = BDXML.Root.Element("Bitacoras");
-                        //Si existe el Element Bitacoras devuelvo true:
+
                         if (bitacoras != null) { return true; }
-                        //Si no creo el Elemento:
+
                         else
                         {
                             bitacoras = new XElement("Bitacoras");
@@ -149,62 +146,58 @@ namespace MPP
         {
             try
             {
-                //Verifico la existencia del XML:
                 if (CrearXML() == true)
                 {
-                    //Verifico que se cargue la info del XML:
                     BDXML = XDocument.Load(ruta);
                     if (BDXML != null)
                     {
-                        //Si pTipo es True, devuelvo solo backups
                         if (pTipo == true)
                         {
-                            //Creo una nueva lista de Bitacoras:
                             List<BEBitacora> listaBitacoras = new List<BEBitacora>();
                             var buscarBitacoriasBackups = from bitacora in BDXML.Root.Element("Bitacoras").Descendants("bitacora")
-                                                   where bitacora.Element("Detalle").Value == "backup"
-                                                   select new BEBitacora
-                                                   {
-                                                       Id = long.Parse(bitacora.Attribute("Id").Value.Trim()),
-                                                       FechaRegistro = DateTime.Parse(bitacora.Element("Fecha_Registro").Value.Trim()),
-                                                       Detalle = bitacora.Element("Detalle").Value.Trim(),
-                                                       oBEUsuario = new BEUsuario
-                                                       {
-                                                           Id = long.Parse(bitacora.Element("usuario").Attribute("Id").Value.Trim()),
-                                                       }
-                                                   };
-                            //Si encuentra al menos un Backup:
+                                                          where bitacora.Element("Detalle").Value == "backup"
+                                                          select new BEBitacora
+                                                          {
+                                                              Id = long.Parse(bitacora.Attribute("Id").Value.Trim()),
+                                                              FechaRegistro = DateTime.Parse(bitacora.Element("Fecha_Registro").Value.Trim()),
+                                                              Detalle = bitacora.Element("Detalle").Value.Trim(),
+                                                              oBEUsuario = new BEUsuario
+                                                              {
+                                                                  Id = long.Parse(bitacora.Element("usuario").Attribute("Id").Value.Trim()),
+                                                              }
+                                                          };
+                       
                             if (buscarBitacoriasBackups != null)
                             {
                                 listaBitacoras = buscarBitacoriasBackups.ToList();
                                 return listaBitacoras;
                             }
-                            //Si no, devuelvo una lista nula:
+                          
                             else { return listaBitacoras = null; }
                         }
-                        //Si es False, devuelvo solo Restores:
+                       
                         else
                         {
                             List<BEBitacora> listaBitacoras = new List<BEBitacora>();
                             var buscarBitacoriasRestores = from bitacora in BDXML.Root.Element("Bitacoras").Descendants("bitacora")
-                                                   where bitacora.Element("Detalle").Value == "restore"
-                                                   select new BEBitacora
-                                                   {
-                                                       Id = long.Parse(bitacora.Attribute("Id").Value.Trim()),
-                                                       FechaRegistro = DateTime.Parse(bitacora.Element("Fecha_Registro").Value.Trim()),
-                                                       Detalle = bitacora.Element("Detalle").Value.Trim(),
-                                                       oBEUsuario = new BEUsuario
-                                                       {
-                                                           Id = long.Parse(bitacora.Element("usuario").Attribute("Id").Value.Trim()),
-                                                       }
-                                                   };
-                            //Si encuentra al menos un Backup:
+                                                           where bitacora.Element("Detalle").Value == "restore"
+                                                           select new BEBitacora
+                                                           {
+                                                               Id = long.Parse(bitacora.Attribute("Id").Value.Trim()),
+                                                               FechaRegistro = DateTime.Parse(bitacora.Element("Fecha_Registro").Value.Trim()),
+                                                               Detalle = bitacora.Element("Detalle").Value.Trim(),
+                                                               oBEUsuario = new BEUsuario
+                                                               {
+                                                                   Id = long.Parse(bitacora.Element("usuario").Attribute("Id").Value.Trim()),
+                                                               }
+                                                           };
+                            
                             if (buscarBitacoriasRestores != null)
                             {
                                 listaBitacoras = buscarBitacoriasRestores.ToList();
                                 return listaBitacoras;
                             }
-                            //Si no, devuelvo una lista nula:
+                           
                             else { return listaBitacoras = null; }
                         }
                     }
@@ -221,24 +214,24 @@ namespace MPP
         {
             try
             {
-                //Verifico la Existencia del XML:
+        
                 if (CrearXML() == true)
                 {
-                    //Verifico que se cargue la info del XML:
+            
                     BDXML = XDocument.Load(ruta);
                     if (BDXML != null)
                     {
-                        //obtengo los Ids:
+                 
                         var pId = from bitacora in BDXML.Root.Element("Bitacoras").Descendants("bitacora")
                                   select long.Parse(bitacora.Attribute("Id").Value.Trim());
-                        //Verifico si encontro al menos Id:
+                   
                         if (pId.Any())
                         {
-                            //Asigno el Id con el valor máximo:
+                            
                             long ultimoId = pId.Max();
                             return ultimoId;
                         }
-                        //Si no existe ningun Id, devuelvo 0:
+                        
                         else { return 0; }
                     }
                     else { throw new XmlException("Error: No se pudo recuperar la información del XML!"); }
@@ -254,23 +247,22 @@ namespace MPP
         {
             try
             {
-                //Verifico la existencia del XML:
+                
                 if (CrearXML() == true)
                 {
-                    //Verifico que se cargue la info del XML:
+                    
                     BDXML = XDocument.Load(ruta);
-                    if ( BDXML != null )
+                    if (BDXML != null)
                     {
-                        //Verifico que la bitacora no sea nula:
+                    
                         if (oBEBitacora != null)
                         {
-                            //Busco si se cumple la condición de que haya una bitacora con la misma fecha de registro:
                             var buscarBitacora = from bitacora in BDXML.Root.Element("Bitacoras").Descendants("bitacora")
                                                  where bitacora.Element("Fecha_Registro").Value.Trim() == oBEBitacora.FechaRegistro.ToString().Trim()
                                                  select bitacora;
-                            //Si encontró al menos una devuelvo True:
-                            if (buscarBitacora.Count() > 0 ) { return true; }
-                            //Si no encontró devuelvo False:
+                          
+                            if (buscarBitacora.Count() > 0) { return true; }
+                          
                             else { return false; }
                         }
                         else { throw new Exception("Error: No se pudo recuperar la información de la Bitacora brindada!"); }

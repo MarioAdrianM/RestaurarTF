@@ -29,6 +29,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dgvDetalles = new System.Windows.Forms.DataGridView();
             this.btnMarcarLista = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvComandas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalles)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +47,7 @@
             // 
             this.dgvComandas.AllowUserToAddRows = false;
             this.dgvComandas.AllowUserToDeleteRows = false;
-            this.dgvComandas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvComandas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvComandas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvComandas.Location = new System.Drawing.Point(16, 29);
@@ -64,7 +65,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 191);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
+            this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Detalle pedido:";
             // 
@@ -72,8 +73,8 @@
             // 
             this.dgvDetalles.AllowUserToAddRows = false;
             this.dgvDetalles.AllowUserToDeleteRows = false;
-            this.dgvDetalles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dgvDetalles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvDetalles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalles.Location = new System.Drawing.Point(16, 207);
@@ -96,9 +97,20 @@
             this.btnMarcarLista.UseVisualStyleBackColor = true;
             this.btnMarcarLista.Click += new System.EventHandler(this.btnMarcarLista_Click);
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(44, 337);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 5;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // FormCocina
             // 
             this.ClientSize = new System.Drawing.Size(521, 372);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnMarcarLista);
             this.Controls.Add(this.dgvDetalles);
             this.Controls.Add(this.label2);
@@ -121,5 +133,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvDetalles;
         private System.Windows.Forms.Button btnMarcarLista;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

@@ -1,0 +1,1730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Usuarios>
+    <usuario Id="1">
+      <Usuario>admin</Usuario>
+      <Password>YQBkAG0AaQBuAA==</Password>
+      <Activo>True</Activo>
+      <Bloqueado>False</Bloqueado>
+    </usuario>
+    <usuario Id="2">
+      <Usuario>123</Usuario>
+      <Password>MQA=</Password>
+      <Activo>True</Activo>
+      <Bloqueado>False</Bloqueado>
+    </usuario>
+    <usuario Id="3">
+      <Usuario>MaximilianoBo</Usuario>
+      <Password>MQA=</Password>
+      <Activo>True</Activo>
+      <Bloqueado>False</Bloqueado>
+    </usuario>
+  </Usuarios>
+  <Usuario_Roles>
+    <usuario_rol>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Rol_Padre>2</Id_Rol_Padre>
+    </usuario_rol>
+  </Usuario_Roles>
+  <Usuario_Permisos>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>1</Id_Permiso>
+    </usuario_permiso>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>21</Id_Permiso>
+    </usuario_permiso>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>20</Id_Permiso>
+    </usuario_permiso>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>19</Id_Permiso>
+    </usuario_permiso>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>12</Id_Permiso>
+    </usuario_permiso>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>30</Id_Permiso>
+    </usuario_permiso>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>10</Id_Permiso>
+    </usuario_permiso>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>27</Id_Permiso>
+    </usuario_permiso>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>7</Id_Permiso>
+    </usuario_permiso>
+    <usuario_permiso>
+      <Id_Usuario>3</Id_Usuario>
+      <Id_Permiso>11</Id_Permiso>
+    </usuario_permiso>
+  </Usuario_Permisos>
+  <Roles>
+    <rol Id="1">
+      <Nombre>cajero</Nombre>
+    </rol>
+    <rol Id="2">
+      <Nombre>mozo</Nombre>
+    </rol>
+  </Roles>
+  <Permisos>
+    <permiso Id="1">
+      <Nombre>Reservas</Nombre>
+    </permiso>
+    <permiso Id="2">
+      <Nombre>Comandas</Nombre>
+    </permiso>
+    <permiso Id="3">
+      <Nombre>Caja</Nombre>
+    </permiso>
+    <permiso Id="4">
+      <Nombre>Rendición de Cobros de Mozo</Nombre>
+    </permiso>
+    <permiso Id="5">
+      <Nombre>Registro de Compras</Nombre>
+    </permiso>
+    <permiso Id="6">
+      <Nombre>Seguridad</Nombre>
+    </permiso>
+    <permiso Id="7">
+      <Nombre>Productos</Nombre>
+    </permiso>
+    <permiso Id="8">
+      <Nombre>ABM Usuario</Nombre>
+    </permiso>
+    <permiso Id="9">
+      <Nombre>Cobro de Mozo</Nombre>
+    </permiso>
+    <permiso Id="10">
+      <Nombre>Cocina</Nombre>
+    </permiso>
+    <permiso Id="11">
+      <Nombre>Facturas</Nombre>
+    </permiso>
+    <permiso Id="12">
+      <Nombre>Operaciones</Nombre>
+    </permiso>
+    <permiso Id="13">
+      <Nombre>Mesas</Nombre>
+    </permiso>
+    <permiso Id="14">
+      <Nombre>Lista de Espera</Nombre>
+    </permiso>
+    <permiso Id="15">
+      <Nombre>Salon</Nombre>
+    </permiso>
+    <permiso Id="16">
+      <Nombre>Recepcion</Nombre>
+    </permiso>
+    <permiso Id="17">
+      <Nombre>Salón</Nombre>
+    </permiso>
+    <permiso Id="18">
+      <Nombre>Recepción</Nombre>
+    </permiso>
+    <permiso Id="19">
+      <Nombre>Gestión</Nombre>
+    </permiso>
+    <permiso Id="20">
+      <Nombre>Administración</Nombre>
+    </permiso>
+    <permiso Id="21">
+      <Nombre>Gestion Caja</Nombre>
+    </permiso>
+    <permiso Id="22">
+      <Nombre>Sistema</Nombre>
+    </permiso>
+    <permiso Id="23">
+      <Nombre>Cambiar Contraseña</Nombre>
+    </permiso>
+    <permiso Id="24">
+      <Nombre>Cerrar Sesion</Nombre>
+    </permiso>
+    <permiso Id="25">
+      <Nombre>Salir</Nombre>
+    </permiso>
+    <permiso Id="26">
+      <Nombre>Backup/Restore</Nombre>
+    </permiso>
+    <permiso Id="27">
+      <Nombre>Categoria Productos</Nombre>
+    </permiso>
+    <permiso Id="28">
+      <Nombre>Anular Item Comanda</Nombre>
+    </permiso>
+    <permiso Id="29">
+      <Nombre>Consultar/Reimprimir Facturas</Nombre>
+    </permiso>
+    <permiso Id="30">
+      <Nombre>Dashboard</Nombre>
+    </permiso>
+    <permiso Id="31">
+      <Nombre>Dashboard Ventas</Nombre>
+    </permiso>
+    <permiso Id="32">
+      <Nombre>Dashboard Operacion</Nombre>
+    </permiso>
+    <permiso Id="33">
+      <Nombre>Dashboard Compras</Nombre>
+    </permiso>
+  </Permisos>
+ <Rol_Permisos>
+    <rol_permiso>
+      <Id_Rol>2</Id_Rol>
+      <Id_Permiso>17</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>2</Id_Rol>
+      <Id_Permiso>9</Id_Permiso>
+    </rol_permiso>
+    <rol_permiso>
+      <Id_Rol>2</Id_Rol>
+      <Id_Permiso>4</Id_Permiso>
+    </rol_permiso>
+  </Rol_Permisos>
+  <Mesas>
+    <Mesa Id="1">
+      <Codigo>M01</Codigo>
+      <Numero>1</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>0</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+    <Mesa Id="2">
+      <Codigo>M02</Codigo>
+      <Numero>2</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>0</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+    <Mesa Id="3">
+      <Codigo>M03</Codigo>
+      <Numero>3</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>2</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+    <Mesa Id="4">
+      <Codigo>M04</Codigo>
+      <Numero>4</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>2</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+    <Mesa Id="5">
+      <Codigo>M05</Codigo>
+      <Numero>5</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>0</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+    <Mesa Id="6">
+      <Codigo>M06</Codigo>
+      <Numero>6</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>0</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+    <Mesa Id="7">
+      <Codigo>M07</Codigo>
+      <Numero>7</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>0</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+    <Mesa Id="8">
+      <Codigo>M08</Codigo>
+      <Numero>8</Numero>
+      <Sector></Sector>
+      <Capacidad>4</Capacidad>
+      <Estado>3</Estado>
+      <Observaciones></Observaciones>
+    </Mesa>
+  </Mesas>
+  <Reservas>
+    <Reserva Id="1">
+      <FechaHora>2025-11-11T17:24:32.2050129-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>1</IdMesa>
+      <Estado>3</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente>1</NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="2">
+      <FechaHora>2025-11-11T17:24:39.4857373-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>2</IdMesa>
+      <Estado>3</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente>1</NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="3">
+      <FechaHora>2025-11-11T17:24:49.3770687-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>3</IdMesa>
+      <Estado>3</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente>1</NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="4">
+      <FechaHora>2025-11-11T21:58:00.1903527-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>1</IdMesa>
+      <Estado>3</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente></NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="5">
+      <FechaHora>2025-11-12T01:35:05.0184939-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>1</IdMesa>
+      <Estado>1</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente></NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="6">
+      <FechaHora>2025-11-12T13:44:01.0017721-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>1</IdMesa>
+      <Estado>3</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente></NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="7">
+      <FechaHora>2025-11-12T13:44:04.8823892-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>2</IdMesa>
+      <Estado>3</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente></NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="8">
+      <FechaHora>2025-11-12T13:44:08.5081298-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>3</IdMesa>
+      <Estado>1</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente></NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="9">
+      <FechaHora>2025-11-12T19:10:16.2424500-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>1</IdMesa>
+      <Estado>3</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente></NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="10">
+      <FechaHora>2025-11-12T19:10:22.7042587-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>2</IdMesa>
+      <Estado>3</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente></NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="11">
+      <FechaHora>2025-11-12T19:10:30.5489185-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>3</IdMesa>
+      <Estado>1</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente></NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+    <Reserva Id="12">
+      <FechaHora>2025-11-12T19:10:34.6102844-03:00</FechaHora>
+      <DuracionMinutos>90</DuracionMinutos>
+      <CantidadPersonas>2</CantidadPersonas>
+      <IdMesa>4</IdMesa>
+      <Estado>1</Estado>
+      <UsuarioCreador>admin</UsuarioCreador>
+      <Observaciones></Observaciones>
+      <NombreCliente></NombreCliente>
+      <Telefono></Telefono>
+    </Reserva>
+  </Reservas>
+  <Comandas>
+    <Comanda Id="1">
+      <Id_Mesa>1</Id_Mesa>
+      <Fecha>2025-11-11T16:05:41.5951138-03:00</Fecha>
+      <Mozo>MaximilianoBo</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>2</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>3</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>4</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="2">
+      <Id_Mesa>2</Id_Mesa>
+      <Fecha>2025-11-11T16:29:29.0721392-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="3">
+      <Id_Mesa>1</Id_Mesa>
+      <Fecha>2025-11-11T17:18:10.6864131-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="4">
+      <Id_Mesa>1</Id_Mesa>
+      <Fecha>2025-11-11T17:23:27.4240707-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="5">
+      <Id_Mesa>1</Id_Mesa>
+      <Fecha>2025-11-11T17:31:55.2567784-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smartwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>100</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="6">
+      <Id_Mesa>2</Id_Mesa>
+      <Fecha>2025-11-11T19:16:19.7318491-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smartwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>100</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="7">
+      <Id_Mesa>3</Id_Mesa>
+      <Fecha>2025-11-11T20:33:54.1465118-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>true</Anulado>
+          <MotivoAnulacion>123</MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>2</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>3</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="8">
+      <Id_Mesa>1</Id_Mesa>
+      <Fecha>2025-11-11T21:58:54.398339-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="9">
+      <Id_Mesa>1</Id_Mesa>
+      <Fecha>2025-11-12T01:35:21.3941332-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Cancelada</Estado>
+      <Detalles />
+      <AuditCancelacion>
+        <Motivo>se fue</Motivo>
+        <Usuario>admin</Usuario>
+        <Fecha>2025-11-12T01:35:33.6296121-03:00</Fecha>
+      </AuditCancelacion>
+    </Comanda>
+    <Comanda Id="10">
+      <Id_Mesa>1</Id_Mesa>
+      <Fecha>2025-11-12T13:45:10.9474511-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>2</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>3</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>4</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>5</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>6</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>7</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>8</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>9</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>10</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>11</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>12</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>13</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>14</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>15</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>16</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>17</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>18</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>19</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>20</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>21</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>22</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>23</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>24</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>25</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>26</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>27</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>28</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>29</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="11">
+      <Id_Mesa>2</Id_Mesa>
+      <Fecha>2025-11-12T13:45:38.5408088-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>25</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="12">
+      <Id_Mesa>1</Id_Mesa>
+      <Fecha>2025-11-12T19:10:57.6630665-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>2</Linea>
+          <Id_Producto>4</Id_Producto>
+          <Descripcion>Pollo a la Mostaza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>50000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>3</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>15000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>4</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>5</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>6</Linea>
+          <Id_Producto>1</Id_Producto>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>7</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+    <Comanda Id="13">
+      <Id_Mesa>2</Id_Mesa>
+      <Fecha>2025-11-12T19:13:34.9014809-03:00</Fecha>
+      <Mozo>admin</Mozo>
+      <Estado>Facturada</Estado>
+      <Detalles>
+        <Detalle>
+          <Linea>1</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>2</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>3</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>4</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>5</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>6</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>7</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>8</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>9</Linea>
+          <Id_Producto>3</Id_Producto>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>10</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>15000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>11</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>15000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+        <Detalle>
+          <Linea>12</Linea>
+          <Id_Producto>2</Id_Producto>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>15000</PrecioUnitario>
+          <Enviado>true</Enviado>
+          <Preparado>true</Preparado>
+          <Anulado>false</Anulado>
+          <MotivoAnulacion></MotivoAnulacion>
+        </Detalle>
+      </Detalles>
+    </Comanda>
+  </Comandas>
+  <ProductosRestaurante />
+  <CobrosMozo>
+    <CobroMozo Id="1">
+      <Id_Comanda>4</Id_Comanda>
+      <FechaHora>2025-11-11T17:26:36</FechaHora>
+      <Mozo>admin</Mozo>
+      <Medio>Efectivo</Medio>
+      <Importe>200</Importe>
+      <Rendido>true</Rendido>
+    </CobroMozo>
+    <CobroMozo Id="2">
+      <Id_Comanda>3</Id_Comanda>
+      <FechaHora>2025-11-11T17:26:38</FechaHora>
+      <Mozo>admin</Mozo>
+      <Medio>Efectivo</Medio>
+      <Importe>200</Importe>
+      <Rendido>true</Rendido>
+    </CobroMozo>
+    <CobroMozo Id="3">
+      <Id_Comanda>2</Id_Comanda>
+      <FechaHora>2025-11-11T17:26:40</FechaHora>
+      <Mozo>admin</Mozo>
+      <Medio>Efectivo</Medio>
+      <Importe>200</Importe>
+      <Rendido>true</Rendido>
+    </CobroMozo>
+    <CobroMozo Id="4">
+      <Id_Comanda>1</Id_Comanda>
+      <FechaHora>2025-11-11T17:28:29</FechaHora>
+      <Mozo>MaximilianoBo</Mozo>
+      <Medio>Tarjeta</Medio>
+      <Importe>800</Importe>
+      <Rendido>true</Rendido>
+    </CobroMozo>
+    <CobroMozo Id="5">
+      <Id_Comanda>5</Id_Comanda>
+      <FechaHora>2025-11-11T19:14:40</FechaHora>
+      <Mozo>admin</Mozo>
+      <Medio>Efectivo</Medio>
+      <Importe>100</Importe>
+      <Rendido>true</Rendido>
+    </CobroMozo>
+    <CobroMozo Id="6">
+      <Id_Comanda>12</Id_Comanda>
+      <FechaHora>2025-11-12T19:15:35</FechaHora>
+      <Mozo>admin</Mozo>
+      <Medio>Efectivo</Medio>
+      <Importe>2050015369</Importe>
+      <Rendido>true</Rendido>
+    </CobroMozo>
+    <CobroMozo Id="7">
+      <Id_Comanda>11</Id_Comanda>
+      <FechaHora>2025-11-12T19:15:37</FechaHora>
+      <Mozo>admin</Mozo>
+      <Medio>Efectivo</Medio>
+      <Importe>3075</Importe>
+      <Rendido>true</Rendido>
+    </CobroMozo>
+    <CobroMozo Id="8">
+      <Id_Comanda>10</Id_Comanda>
+      <FechaHora>2025-11-12T19:15:39</FechaHora>
+      <Mozo>admin</Mozo>
+      <Medio>Efectivo</Medio>
+      <Importe>1127</Importe>
+      <Rendido>true</Rendido>
+    </CobroMozo>
+    <CobroMozo Id="9">
+      <Id_Comanda>13</Id_Comanda>
+      <FechaHora>2025-11-12T19:31:16</FechaHora>
+      <Mozo>admin</Mozo>
+      <Medio>Efectivo</Medio>
+      <Importe>9000045000</Importe>
+      <Rendido>true</Rendido>
+    </CobroMozo>
+  </CobrosMozo>
+  <Productos />
+  <Cajas>
+    <Caja Id="1">
+      <Fecha>2025-11-11T00:00:00-03:00</Fecha>
+      <Apertura>2025-11-11T17:14:02.3052056-03:00</Apertura>
+      <Cierre>2025-11-11T17:29:17</Cierre>
+      <Estado>Cerrada</Estado>
+      <MontoInicial>0</MontoInicial>
+      <MontoFinal>1400</MontoFinal>
+    </Caja>
+    <Caja Id="2">
+      <Fecha>2025-11-11T00:00:00-03:00</Fecha>
+      <Apertura>2025-11-11T19:09:22.6548843-03:00</Apertura>
+      <Cierre>2025-11-11T19:15:31</Cierre>
+      <Estado>Cerrada</Estado>
+      <MontoInicial>1400.00</MontoInicial>
+      <MontoFinal>1498.00</MontoFinal>
+    </Caja>
+    <Caja Id="3">
+      <Fecha>2025-11-11T00:00:00-03:00</Fecha>
+      <Apertura>2025-11-11T19:16:00.4759031-03:00</Apertura>
+      <Cierre>2025-11-11T19:16:09</Cierre>
+      <Estado>Cerrada</Estado>
+      <MontoInicial>1498.00</MontoInicial>
+      <MontoFinal>1498.00</MontoFinal>
+    </Caja>
+    <Caja Id="4">
+      <Fecha>2025-11-11T00:00:00-03:00</Fecha>
+      <Apertura>2025-11-11T19:17:35.4700295-03:00</Apertura>
+      <Cierre></Cierre>
+      <Estado>Abierta</Estado>
+      <MontoInicial>1498.00</MontoInicial>
+      <MontoFinal>0</MontoFinal>
+    </Caja>
+    <Caja Id="5">
+      <Fecha>2025-11-12T00:00:00-03:00</Fecha>
+      <Apertura>2025-11-12T13:46:18.8101657-03:00</Apertura>
+      <Cierre>2025-11-12T19:16:10</Cierre>
+      <Estado>Cerrada</Estado>
+      <MontoInicial>0</MontoInicial>
+      <MontoFinal>2048019571</MontoFinal>
+    </Caja>
+    <Caja Id="6">
+      <Fecha>2025-11-12T00:00:00-03:00</Fecha>
+      <Apertura>2025-11-12T19:23:43.3874325-03:00</Apertura>
+      <Cierre>2025-11-12T19:31:47</Cierre>
+      <Estado>Cerrada</Estado>
+      <MontoInicial>2048019571.00</MontoInicial>
+      <MontoFinal>11046564571.00</MontoFinal>
+    </Caja>
+  </Cajas>
+  <MovimientosCaja>
+    <MovimientoCaja Id="1">
+      <Id_Caja>1</Id_Caja>
+      <FechaHora>2025-11-11T17:27:05.9816299-03:00</FechaHora>
+      <Tipo>Ingreso</Tipo>
+      <Concepto>Rendición mozo admin (comanda 4)</Concepto>
+      <Importe>200</Importe>
+      <Id_Comanda>4</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="2">
+      <Id_Caja>1</Id_Caja>
+      <FechaHora>2025-11-11T17:27:06.0269667-03:00</FechaHora>
+      <Tipo>Ingreso</Tipo>
+      <Concepto>Rendición mozo admin (comanda 3)</Concepto>
+      <Importe>200</Importe>
+      <Id_Comanda>3</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="3">
+      <Id_Caja>1</Id_Caja>
+      <FechaHora>2025-11-11T17:27:06.0607634-03:00</FechaHora>
+      <Tipo>Ingreso</Tipo>
+      <Concepto>Rendición mozo admin (comanda 2)</Concepto>
+      <Importe>200</Importe>
+      <Id_Comanda>2</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="4">
+      <Id_Caja>1</Id_Caja>
+      <FechaHora>2025-11-11T17:29:01.7023764-03:00</FechaHora>
+      <Tipo>Ingreso</Tipo>
+      <Concepto>Rendición mozo MaximilianoBo (comanda 1)</Concepto>
+      <Importe>800</Importe>
+      <Id_Comanda>1</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="5">
+      <Id_Caja>2</Id_Caja>
+      <FechaHora>2025-11-11T19:09:28.1862183-03:00</FechaHora>
+      <Tipo>Egreso</Tipo>
+      <Concepto>Compra dfg (Aguas Minerales) - Comp. 1</Concepto>
+      <Importe>1</Importe>
+      <Id_Comanda>0</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="6">
+      <Id_Caja>2</Id_Caja>
+      <FechaHora>2025-11-11T19:09:49.3895451-03:00</FechaHora>
+      <Tipo>Egreso</Tipo>
+      <Concepto>Compra dfg (Aguas Minerales) - Comp. 12</Concepto>
+      <Importe>1</Importe>
+      <Id_Comanda>0</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="7">
+      <Id_Caja>2</Id_Caja>
+      <FechaHora>2025-11-11T19:14:50.4547514-03:00</FechaHora>
+      <Tipo>Ingreso</Tipo>
+      <Concepto>Rendición mozo admin (comanda 5)</Concepto>
+      <Importe>100</Importe>
+      <Id_Comanda>5</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="8">
+      <Id_Caja>5</Id_Caja>
+      <FechaHora>2025-11-12T13:46:21.3001032-03:00</FechaHora>
+      <Tipo>Egreso</Tipo>
+      <Concepto>Compra lllllllllllllllll (Aguas Minerales) - Comp. 12</Concepto>
+      <Importe>1000000</Importe>
+      <Id_Comanda>0</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="9">
+      <Id_Caja>5</Id_Caja>
+      <FechaHora>2025-11-12T15:59:40.4252554-03:00</FechaHora>
+      <Tipo>Egreso</Tipo>
+      <Concepto>Compra lllllllllllllllll (Aguas Minerales) - Comp. 12</Concepto>
+      <Importe>1000000</Importe>
+      <Id_Comanda>0</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="10">
+      <Id_Caja>5</Id_Caja>
+      <FechaHora>2025-11-12T19:15:55.6535281-03:00</FechaHora>
+      <Tipo>Ingreso</Tipo>
+      <Concepto>Rendición mozo admin (comanda 12)</Concepto>
+      <Importe>2050015369</Importe>
+      <Id_Comanda>12</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="11">
+      <Id_Caja>5</Id_Caja>
+      <FechaHora>2025-11-12T19:15:55.7156065-03:00</FechaHora>
+      <Tipo>Ingreso</Tipo>
+      <Concepto>Rendición mozo admin (comanda 11)</Concepto>
+      <Importe>3075</Importe>
+      <Id_Comanda>11</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="12">
+      <Id_Caja>5</Id_Caja>
+      <FechaHora>2025-11-12T19:15:55.7888329-03:00</FechaHora>
+      <Tipo>Ingreso</Tipo>
+      <Concepto>Rendición mozo admin (comanda 10)</Concepto>
+      <Importe>1127</Importe>
+      <Id_Comanda>10</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="13">
+      <Id_Caja>6</Id_Caja>
+      <FechaHora>2025-11-12T19:23:50.3822671-03:00</FechaHora>
+      <Tipo>Egreso</Tipo>
+      <Concepto>Compra dfgdfgdf (Aves) - Comp. 123123</Concepto>
+      <Importe>500000</Importe>
+      <Id_Comanda>0</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="14">
+      <Id_Caja>6</Id_Caja>
+      <FechaHora>2025-11-12T19:24:06.2059959-03:00</FechaHora>
+      <Tipo>Egreso</Tipo>
+      <Concepto>Compra 3213123 (Carnes) - Comp. 123123</Concepto>
+      <Importe>1000000</Importe>
+      <Id_Comanda>0</Id_Comanda>
+    </MovimientoCaja>
+    <MovimientoCaja Id="15">
+      <Id_Caja>6</Id_Caja>
+      <FechaHora>2025-11-12T19:31:35.5105872-03:00</FechaHora>
+      <Tipo>Ingreso</Tipo>
+      <Concepto>Rendición mozo admin (comanda 13)</Concepto>
+      <Importe>9000045000</Importe>
+      <Id_Comanda>13</Id_Comanda>
+    </MovimientoCaja>
+  </MovimientosCaja>
+  <Facturas>
+    <Factura Id="1">
+      <Numero>1</Numero>
+      <Fecha>2025-11-11T17:14:44.6441383-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>1</Id_Comanda>
+      <Total>800</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>4</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Subtotal>800</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="2">
+      <Numero>2</Numero>
+      <Fecha>2025-11-11T17:15:42.1120544-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>2</Id_Comanda>
+      <Total>200</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Subtotal>200</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="3">
+      <Numero>3</Numero>
+      <Fecha>2025-11-11T17:19:46.4794303-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>3</Id_Comanda>
+      <Total>200</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Subtotal>200</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="4">
+      <Numero>4</Numero>
+      <Fecha>2025-11-11T17:23:56.754022-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>4</Id_Comanda>
+      <Total>200</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>cerveza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>200</PrecioUnitario>
+          <Subtotal>200</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="5">
+      <Numero>5</Numero>
+      <Fecha>2025-11-11T19:13:42.9817756-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>5</Id_Comanda>
+      <Total>100</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>smartwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>100</PrecioUnitario>
+          <Subtotal>100</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="6">
+      <Numero>6</Numero>
+      <Fecha>2025-11-11T19:17:49.666746-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>6</Id_Comanda>
+      <Total>100</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>smartwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>100</PrecioUnitario>
+          <Subtotal>100</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="7">
+      <Numero>7</Numero>
+      <Fecha>2025-11-11T20:54:45.9098759-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>7</Id_Comanda>
+      <Total>246</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>2</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Subtotal>246</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="8">
+      <Tipo>FACTURA</Tipo>
+      <Numero>1</Numero>
+      <Fecha>2025-11-11T22:00:42.4840401-03:00</Fecha>
+      <ClienteNombre>asd</ClienteNombre>
+      <ClienteCuit>30000</ClienteCuit>
+      <Id_Comanda>8</Id_Comanda>
+      <Total>123</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Subtotal>123</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="9">
+      <Tipo>FACTURA</Tipo>
+      <Numero>2</Numero>
+      <Fecha>2025-11-12T13:48:55.5266494-03:00</Fecha>
+      <ClienteNombre>ffghfghfgh</ClienteNombre>
+      <ClienteCuit>11111111</ClienteCuit>
+      <Id_Comanda>10</Id_Comanda>
+      <Total>1127</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>20</Cantidad>
+          <PrecioUnitario>1</PrecioUnitario>
+          <Subtotal>20</Subtotal>
+        </Detalle>
+        <Detalle>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>9</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Subtotal>1107</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="10">
+      <Tipo>TICKET</Tipo>
+      <Numero>1</Numero>
+      <Fecha>2025-11-12T13:53:03.6170087-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>11</Id_Comanda>
+      <Total>3075</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>25</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Subtotal>3075</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="11">
+      <Tipo>TICKET</Tipo>
+      <Numero>2</Numero>
+      <Fecha>2025-11-12T19:14:00.9298464-03:00</Fecha>
+      <ClienteNombre></ClienteNombre>
+      <ClienteCuit></ClienteCuit>
+      <Id_Comanda>12</Id_Comanda>
+      <Total>2050015369</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>2</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Subtotal>2000000000</Subtotal>
+        </Detalle>
+        <Detalle>
+          <Descripcion>Pollo a la Mostaza</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>50000000</PrecioUnitario>
+          <Subtotal>50000000</Subtotal>
+        </Detalle>
+        <Detalle>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>1</Cantidad>
+          <PrecioUnitario>15000</PrecioUnitario>
+          <Subtotal>15000</Subtotal>
+        </Detalle>
+        <Detalle>
+          <Descripcion>smarwater</Descripcion>
+          <Cantidad>3</Cantidad>
+          <PrecioUnitario>123</PrecioUnitario>
+          <Subtotal>369</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+    <Factura Id="12">
+      <Tipo>FACTURA</Tipo>
+      <Numero>3</Numero>
+      <Fecha>2025-11-12T19:30:17.5480635-03:00</Fecha>
+      <ClienteNombre>Jose luis Perales</ClienteNombre>
+      <ClienteCuit>123456789</ClienteCuit>
+      <Id_Comanda>13</Id_Comanda>
+      <Total>9000045000</Total>
+      <Detalles>
+        <Detalle>
+          <Descripcion>Lomo al Champignon</Descripcion>
+          <Cantidad>9</Cantidad>
+          <PrecioUnitario>1000000000</PrecioUnitario>
+          <Subtotal>9000000000</Subtotal>
+        </Detalle>
+        <Detalle>
+          <Descripcion>smart</Descripcion>
+          <Cantidad>3</Cantidad>
+          <PrecioUnitario>15000</PrecioUnitario>
+          <Subtotal>45000</Subtotal>
+        </Detalle>
+      </Detalles>
+    </Factura>
+  </Facturas>
+  <ProductosCarta>
+    <ProductoCarta Id="1">
+      <Nombre>AQUARIUS 600CM3</Nombre>
+      <CategoriaId>1</CategoriaId>
+      <Descripcion></Descripcion>
+      <Precio>3200</Precio>
+      <Activo>True</Activo>
+      <CategoriaNombre>AGUAS MINERALES</CategoriaNombre>
+    </ProductoCarta>
+  </ProductosCarta>
+  <ListasEspera />
+  <Compras>
+    <Compra Id="1">
+      <Fecha>2025-11-12T00:00:00-03:00</Fecha>
+      <Proveedor>lllllllllllllllll</Proveedor>
+      <NumeroComprobante>12</NumeroComprobante>
+      <CategoriaId>1</CategoriaId>
+      <CategoriaNombre>Aguas Minerales</CategoriaNombre>
+      <ImporteTotal>1000000</ImporteTotal>
+      <Observaciones></Observaciones>
+    </Compra>
+    <Compra Id="2">
+      <Fecha>2025-11-12T00:00:00-03:00</Fecha>
+      <Proveedor>dfgdfgdf</Proveedor>
+      <NumeroComprobante>123123</NumeroComprobante>
+      <CategoriaId>3</CategoriaId>
+      <CategoriaNombre>Aves</CategoriaNombre>
+      <ImporteTotal>500000</ImporteTotal>
+      <Observaciones></Observaciones>
+    </Compra>
+    <Compra Id="3">
+      <Fecha>2025-11-12T00:00:00-03:00</Fecha>
+      <Proveedor>3213123</Proveedor>
+      <NumeroComprobante>123123</NumeroComprobante>
+      <CategoriaId>2</CategoriaId>
+      <CategoriaNombre>Carnes</CategoriaNombre>
+      <ImporteTotal>1000000</ImporteTotal>
+      <Observaciones></Observaciones>
+    </Compra>
+  </Compras>
+  <CategoriasProducto>
+    <Categoria Id="1">
+      <Nombre>AGUAS MINERALES</Nombre>
+      <Descripcion></Descripcion>
+      <Activo>true</Activo>
+    </Categoria>
+    <Categoria Id="2">
+      <Nombre>BEBIDAS GASEOSA</Nombre>
+      <Descripcion></Descripcion>
+      <Activo>true</Activo>
+    </Categoria>
+    <Categoria Id="3">
+      <Nombre>CARNES ROJAS</Nombre>
+      <Descripcion></Descripcion>
+      <Activo>true</Activo>
+    </Categoria>
+    <Categoria Id="4">
+      <Nombre>AVES</Nombre>
+      <Descripcion>GRILLE O SALSEADAS</Descripcion>
+      <Activo>true</Activo>
+    </Categoria>
+    <Categoria Id="5">
+      <Nombre>POSTRES CASEROS</Nombre>
+      <Descripcion></Descripcion>
+      <Activo>true</Activo>
+    </Categoria>
+  </CategoriasProducto>
+</Root>

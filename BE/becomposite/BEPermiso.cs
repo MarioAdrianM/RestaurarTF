@@ -8,14 +8,7 @@ namespace BE.BEComposite
 {
     public class BEPermiso : BEComposite
     {
-
-        #region "Constructor"
-
         public BEPermiso(long pId, string pNombre): base(pId, pNombre) { }
-
-        #endregion
-
-        #region "Métodos"
 
         public override void Agregar(BEComposite oBEComponente)
         {
@@ -29,6 +22,6 @@ namespace BE.BEComposite
             catch (Exception ex){ throw ex;}
         }
 
-        #endregion
+        
     }
 }

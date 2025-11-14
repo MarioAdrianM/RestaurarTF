@@ -8,9 +8,6 @@ namespace Abstraccion
 {
     public interface IGestor<T> where T: IEntidad
     {
-
-        #region "Métodos"
-
         bool Guardar(T objeto);
 
         bool Eliminar(T objeto);
@@ -25,6 +22,5 @@ namespace Abstraccion
 
         long ObtenerUltimoId();
 
-        #endregion
     }
 }

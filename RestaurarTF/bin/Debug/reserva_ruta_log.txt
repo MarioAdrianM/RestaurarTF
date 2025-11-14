@@ -1,1 +1,0 @@
-Reserva está usando esta ruta: C:\Users\SLASH\Desktop\TRABAJO FINAL\MI_TRABAJO_FINAL\RestaurarTF\RestaurarTF\bin\Debug\BaseDatos\BD.Xml

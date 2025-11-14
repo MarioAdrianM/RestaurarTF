@@ -60,8 +60,13 @@ namespace RestaurarTF
                 oBEUsuario = ValidarDatos();
                 if (oBEUsuario != null)
                 {
-                    // Traigo el usuario completo desde el XML
-                    oBEUsuario = oBLLUsuario.ListarObjeto(oBEUsuario);
+                    var usuarioBD = oBLLUsuario.ListarObjeto(oBEUsuario);
+                    if (usuarioBD == null)
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrectos.", "Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    oBEUsuario = usuarioBD;
 
                     if (oBEUsuario.Activo == true)
                     {
@@ -70,14 +75,13 @@ namespace RestaurarTF
                             string txtBoxPasswordEncriptado = oBLLUsuario.EncriptarPassword(txtPassword.Text.Trim());
                             if (oBEUsuario.Password == txtBoxPasswordEncriptado)
                             {
-                                // guardo la password en claro para la sesión, igual que hace FordFox
                                 oBEUsuario.Password = txtPassword.Text.Trim();
 
                                 if (oBLLUsuario.Login(oBEUsuario) == true)
                                 {
                                     intento = 0;
                                     oBEUsuario = oBLLUsuario.ListarObjeto(oBEUsuario);
-
+                                    
                                     FormMenu frm = new FormMenu(oBEUsuario);
                                     frm.Show();
                                     this.Hide();

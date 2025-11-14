@@ -10,11 +10,13 @@ namespace BLL_Negocio
     {
         private readonly MPPCaja _mppCaja;
         private readonly MPPCobroMozo _mppCobro;
+        private readonly MPPFactura _mppFactura;
 
         public BLLCaja()
         {
             _mppCaja = new MPPCaja();
             _mppCobro = new MPPCobroMozo();
+            _mppFactura = new MPPFactura();
         }
 
         public BECaja ObtenerCajaHoy()
@@ -24,12 +26,26 @@ namespace BLL_Negocio
 
         public void AbrirCaja(decimal montoInicial)
         {
-            // no abrir 2 veces el mismo día
-            var cajaHoy = ObtenerCajaHoy();
-            if (cajaHoy != null)
-                throw new Exception("La caja de hoy ya existe.");
+            var cajaHoy = _mppCaja.ObtenerCajaDeFecha(DateTime.Today);
 
-            var caja = new BECaja
+            if (cajaHoy == null)
+            {
+                var cajaNueva = new BECaja
+                {
+                    Fecha = DateTime.Today,
+                    Apertura = DateTime.Now,
+                    Estado = "Abierta",
+                    MontoInicial = montoInicial,
+                    MontoFinal = 0
+                };
+                _mppCaja.AbrirCaja(cajaNueva);
+                return;
+            }
+
+            if (cajaHoy.Estado == "Abierta")
+                throw new Exception("La caja de hoy ya está abierta.");
+
+            var otraCaja = new BECaja//si esta cerrada
             {
                 Fecha = DateTime.Today,
                 Apertura = DateTime.Now,
@@ -37,8 +53,7 @@ namespace BLL_Negocio
                 MontoInicial = montoInicial,
                 MontoFinal = 0
             };
-
-            _mppCaja.AbrirCaja(caja);
+            _mppCaja.AbrirCaja(otraCaja);
         }
 
         public void CerrarCaja()
@@ -47,8 +62,7 @@ namespace BLL_Negocio
             if (caja == null)
                 throw new Exception("No hay caja abierta.");
 
-            // podemos calcular el total como: monto inicial + ingresos - egresos
-            var movimientos = _mppCaja.ListarMovimientos(caja.Id);
+            var movimientos = _mppCaja.ListarMovimientos(caja.Id);//de hoy
 
             decimal totalIngresos = movimientos
                 .Where(m => m.Tipo == "Ingreso")
@@ -60,30 +74,30 @@ namespace BLL_Negocio
 
             decimal montoFinal = caja.MontoInicial + totalIngresos - totalEgresos;
 
-            _mppCaja.CerrarCaja(caja.Id, montoFinal);
+            _mppCaja.CerrarCaja(caja.Id, montoFinal);//a la bbd
+
+            var cajaCerrada = _mppCaja.ObtenerCajaDeFecha(caja.Fecha);
+
+            _mppCaja.GenerarInformeCierrePDF(cajaCerrada, movimientos);
         }
 
-        // esto es lo que usa tu FormCaja para llenar el grid
+
         public List<BECobroMozo> ListarCobrosPendientesDeRendicion()
         {
             return _mppCobro.ListarNoRendidos();
         }
-
-        // esto es lo que hace el botón "Rendir seleccionado"
         public void RendirCobro(long idCobro)
         {
             var caja = ObtenerCajaHoy();
             if (caja == null || caja.Estado != "Abierta")
                 throw new Exception("No hay caja abierta.");
 
-            // buscamos el cobro dentro de los pendientes
             var cobro = _mppCobro.ListarNoRendidos()
                                  .FirstOrDefault(c => c.Id == idCobro);
 
             if (cobro == null)
                 throw new Exception("El cobro no existe o ya fue rendido.");
 
-            // 1) registramos movimiento en caja
             var mov = new BEMovimientoCaja
             {
                 Id_Caja = caja.Id,
@@ -95,8 +109,25 @@ namespace BLL_Negocio
             };
             _mppCaja.RegistrarMovimiento(mov);
 
-            // 2) marcamos el cobro como rendido
             _mppCobro.MarcarComoRendido(cobro.Id);
+        }
+        public (List<BECobroMozo> cobrosNoRendidos, List<BEFactura> facturasSinCobro)
+            GetPendientesDeCierreHoy()
+        {
+            var hoy = DateTime.Today;
+
+            var cobrosNoRendidos = _mppCobro.ListarNoRendidos();
+
+            var facturasHoy = _mppFactura.ListarPorFecha(hoy);
+
+            var cobrosHoy = _mppCobro.ListarPorFecha(hoy);
+            //TODO
+          
+            var facturasSinCobro = facturasHoy
+                .Where(f => !cobrosHoy.Any(c => c.Id_Comanda == f.Id_Comanda))
+                .ToList();
+
+            return (cobrosNoRendidos, facturasSinCobro);
         }
         public List<BEMovimientoCaja> ListarMovimientosCajaHoy()
         {
@@ -105,6 +136,23 @@ namespace BLL_Negocio
                 return new List<BEMovimientoCaja>();
 
             return _mppCaja.ListarMovimientos(caja.Id);
+        }
+        public void RegistrarEgreso(string concepto, decimal importe)
+        {
+            var caja = ObtenerCajaHoy();
+            if (caja == null || caja.Estado != "Abierta")
+                throw new Exception("No hay caja abierta. Abra la caja para registrar gastos.");
+
+            var mov = new BEMovimientoCaja
+            {
+                Id_Caja = caja.Id,
+                FechaHora = DateTime.Now,
+                Tipo = "Egreso",
+                Concepto = concepto ?? "Compra",
+                Importe = importe,
+                Id_Comanda = null
+            };
+            _mppCaja.RegistrarMovimiento(mov);
         }
 
     }

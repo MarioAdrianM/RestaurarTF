@@ -9,16 +9,12 @@ namespace BE
 {
     public class BEEntidad : IEntidad
     {
-        #region "Propiedades"
-
         private long id;
-
         public long Id
         {
             get { return id; }
             set { id = value; }
         }
 
-        #endregion
     }
 }

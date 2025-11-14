@@ -9,8 +9,6 @@ namespace BE
 {
     public class BEUsuario: BEEntidad
     {
-        #region "Propiedades"
-
         public string Usuario { get; set; }
 
         public string Password { get; set; }
@@ -23,9 +21,6 @@ namespace BE
 
         public List<BEPermiso> listaPermisos { get; set; }
 
-        #endregion
-
-        #region "Constructores"
 
         public BEUsuario() 
         {
@@ -42,15 +37,11 @@ namespace BE
             Bloqueado = pBloqueado;
         }
 
-        #endregion
-
-        #region "Métodos"
 
         public override string ToString()
         {
             return Id.ToString().Trim();
         }
 
-        #endregion
     }
 }

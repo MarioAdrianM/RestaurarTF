@@ -3,6 +3,7 @@ using BE.BEComposite;
 using MPP;
 using System;
 using System.Collections.Generic;
+using System.Xml;
 
 namespace BLL_Negocio
 {
@@ -50,7 +51,6 @@ namespace BLL_Negocio
             return _mpp.VerificarExistenciaObjeto(objeto);
         }
 
-        // extras para el form
         public List<BEPermiso> ListarPermisos()
         {
             return _mpp.ListarPermisos();
@@ -60,7 +60,7 @@ namespace BLL_Negocio
         {
             return _mpp.ListarPermisosDeRol(rol);
         }
-        // ⬇⬇⬇ ESTE ES EL QUE TE FALTABA ⬇⬇⬇
+        
         public List<BEPermiso> ListarPermisosDelRol(BERol rol)
         {
             return _mpp.ListarPermisosDelRol(rol);
@@ -68,16 +68,15 @@ namespace BLL_Negocio
 
         public bool AsociarRolaPermiso(BERol rol, BEPermiso permiso)
         {
-            if (rol.Nombre.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
-                throw new Exception("No se pueden modificar los permisos del rol Administrador.");
             return _mpp.AsociarRolaPermiso(rol, permiso);
         }
 
         public bool DesasociarRolaPermiso(BERol rol, BEPermiso permiso)
         {
-            if (rol.Nombre.Equals("Administrador", StringComparison.OrdinalIgnoreCase))
-                throw new Exception("No se pueden modificar los permisos del rol Administrador.");
             return _mpp.DesasociarRolaPermiso(rol, permiso);
+            //if (rol.Nombre.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            //    throw new Exception("No se pueden modificar los permisos del rol Administrador.");
+            //return _mpp.DesasociarRolaPermiso(rol, permiso);
         }
     }
 }

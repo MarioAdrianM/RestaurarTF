@@ -34,9 +34,9 @@ namespace MPP
             else
             {
                 _doc = XDocument.Load(_ruta);
-                if (_doc.Root.Element("ProductosCarta") == null)
+                if (_doc.Root.Element("Reservas") == null)
                 {
-                    _doc.Root.Add(new XElement("ProductosCarta"));
+                    _doc.Root.Add(new XElement("Reservas"));
                     _doc.Save(_ruta);
                 }
             }
@@ -69,7 +69,9 @@ namespace MPP
                     new XElement("IdMesa", o.IdMesa.HasValue ? o.IdMesa.Value : 0),
                     new XElement("Estado", (int)o.Estado),
                     new XElement("UsuarioCreador", o.UsuarioCreador ?? string.Empty),
-                    new XElement("Observaciones", o.Observaciones ?? string.Empty)
+                    new XElement("Observaciones", o.Observaciones ?? string.Empty),
+                    new XElement("NombreCliente", o.NombreCliente ?? string.Empty),
+                    new XElement("Telefono", o.Telefono ?? string.Empty)
                 );
 
                 _doc.Root.Element("Reservas").Add(xRes);
@@ -89,6 +91,8 @@ namespace MPP
                 xRes.Element("Estado").Value = ((int)o.Estado).ToString();
                 xRes.Element("UsuarioCreador").Value = o.UsuarioCreador ?? string.Empty;
                 xRes.Element("Observaciones").Value = o.Observaciones ?? string.Empty;
+                xRes.Element("NombreCliente").Value = o.NombreCliente ?? string.Empty;
+                xRes.Element("Telefono").Value = o.Telefono ?? string.Empty;
             }
 
             _doc.Save(_ruta);
@@ -117,23 +121,18 @@ namespace MPP
                 .Elements("Reserva")
                 .Select(x =>
                 {
-                    // Fecha
                     DateTime fecha;
                     var fechaStr = (string)x.Element("FechaHora") ?? DateTime.Now.ToString("o");
-                    // primero intento ISO (o)
                     if (!DateTime.TryParse(fechaStr, null, DateTimeStyles.RoundtripKind, out fecha))
                     {
-                        // si no, intento cultura local
                         DateTime.TryParse(fechaStr, new CultureInfo("es-AR"), DateTimeStyles.None, out fecha);
                     }
 
-                    // Mesa (0 = sin mesa)
                     long idMesa = 0;
                     var elMesa = x.Element("IdMesa");
                     if (elMesa != null)
                         long.TryParse(elMesa.Value, out idMesa);
 
-                    // Estado (guardado como int)
                     int estadoInt = 0;
                     var elEstado = x.Element("Estado");
                     if (elEstado != null)
@@ -148,7 +147,9 @@ namespace MPP
                         IdMesa = (idMesa == 0) ? (long?)null : idMesa,
                         Estado = (EstadoReserva)estadoInt,
                         UsuarioCreador = (string)x.Element("UsuarioCreador") ?? string.Empty,
-                        Observaciones = (string)x.Element("Observaciones") ?? string.Empty
+                        Observaciones = (string)x.Element("Observaciones") ?? string.Empty,
+                        NombreCliente = (string)x.Element("NombreCliente") ?? string.Empty,
+                        Telefono = (string)x.Element("Telefono") ?? string.Empty
                     };
                 })
                 .ToList();

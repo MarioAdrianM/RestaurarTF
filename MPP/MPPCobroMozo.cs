@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using BE;
-using Backup;   // donde tengas GestorCarpeta.UbicacionBD
+using Backup;  
 
 namespace MPP
 {
@@ -84,7 +84,7 @@ namespace MPP
             return lista;
         }
 
-        // esto lo usará el cajero cuando haga la rendición
+
         public void MarcarComoRendido(long idCobro)
         {
             AsegurarXml();
@@ -98,5 +98,25 @@ namespace MPP
             nodo.Element("Rendido").Value = "true";
             _doc.Save(_ruta);
         }
+        public List<BECobroMozo> ListarPorFecha(DateTime fecha)
+        {
+            AsegurarXml();
+
+            return _doc.Root.Element("CobrosMozo")
+               .Elements("CobroMozo")
+               .Where(x => DateTime.Parse(x.Element("FechaHora").Value).Date == fecha.Date)
+               .Select(x => new BECobroMozo
+               {
+                   Id = (long)x.Attribute("Id"),
+                   Id_Comanda = (long)x.Element("Id_Comanda"),
+                   FechaHora = DateTime.Parse(x.Element("FechaHora").Value),
+                   Mozo = (string)x.Element("Mozo"),
+                   Medio = (string)x.Element("Medio"),
+                   Importe = (decimal)x.Element("Importe"),
+                   Rendido = (bool)x.Element("Rendido")
+               })
+               .ToList();
+        }
+
     }
 }

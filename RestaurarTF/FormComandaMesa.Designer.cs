@@ -2,14 +2,8 @@
 {
     partial class FormComandaMesa
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -34,16 +28,19 @@
             this.colProdPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
-            this.colDetDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDetCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDetLinea = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDetProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDetCant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDetPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDetSubtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDetEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.nudCantidad = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.btnSolicitarFactura = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidad)).BeginInit();
@@ -149,10 +146,12 @@
             this.dgvDetalle.AllowUserToDeleteRows = false;
             this.dgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colDetDescripcion,
-            this.colDetCantidad,
+            this.colDetLinea,
+            this.colDetProducto,
+            this.colDetCant,
             this.colDetPrecio,
-            this.colDetSubtotal});
+            this.colDetSubtotal,
+            this.colDetEstado});
             this.dgvDetalle.Location = new System.Drawing.Point(16, 241);
             this.dgvDetalle.MultiSelect = false;
             this.dgvDetalle.Name = "dgvDetalle";
@@ -161,29 +160,37 @@
             this.dgvDetalle.Size = new System.Drawing.Size(457, 150);
             this.dgvDetalle.TabIndex = 6;
             // 
-            // colDetDescripcion
+            // colDetLinea
             // 
-            this.colDetDescripcion.DataPropertyName = "Descripcion";
-            this.colDetDescripcion.HeaderText = "Producto";
-            this.colDetDescripcion.Name = "colDetDescripcion";
-            this.colDetDescripcion.ReadOnly = true;
-            this.colDetDescripcion.Width = 180;
+            this.colDetLinea.DataPropertyName = "Linea";
+            this.colDetLinea.HeaderText = "Linea";
+            this.colDetLinea.Name = "colDetLinea";
+            this.colDetLinea.ReadOnly = true;
+            this.colDetLinea.Visible = false;
             // 
-            // colDetCantidad
+            // colDetProducto
             // 
-            this.colDetCantidad.DataPropertyName = "Cantidad";
-            this.colDetCantidad.HeaderText = "Cant.";
-            this.colDetCantidad.Name = "colDetCantidad";
-            this.colDetCantidad.ReadOnly = true;
-            this.colDetCantidad.Width = 50;
+            this.colDetProducto.DataPropertyName = "Producto";
+            this.colDetProducto.HeaderText = "Producto";
+            this.colDetProducto.Name = "colDetProducto";
+            this.colDetProducto.ReadOnly = true;
+            this.colDetProducto.Width = 160;
+            // 
+            // colDetCant
+            // 
+            this.colDetCant.DataPropertyName = "Cant";
+            this.colDetCant.HeaderText = "Cant.";
+            this.colDetCant.Name = "colDetCant";
+            this.colDetCant.ReadOnly = true;
+            this.colDetCant.Width = 50;
             // 
             // colDetPrecio
             // 
-            this.colDetPrecio.DataPropertyName = "PrecioUnitario";
+            this.colDetPrecio.DataPropertyName = "P_Unit";
             this.colDetPrecio.HeaderText = "P.Unit";
             this.colDetPrecio.Name = "colDetPrecio";
             this.colDetPrecio.ReadOnly = true;
-            this.colDetPrecio.Width = 70;
+            this.colDetPrecio.Width = 60;
             // 
             // colDetSubtotal
             // 
@@ -191,7 +198,15 @@
             this.colDetSubtotal.HeaderText = "Subtotal";
             this.colDetSubtotal.Name = "colDetSubtotal";
             this.colDetSubtotal.ReadOnly = true;
-            this.colDetSubtotal.Width = 80;
+            this.colDetSubtotal.Width = 70;
+            // 
+            // colDetEstado
+            // 
+            this.colDetEstado.DataPropertyName = "Estado";
+            this.colDetEstado.HeaderText = "Estado";
+            this.colDetEstado.Name = "colDetEstado";
+            this.colDetEstado.ReadOnly = true;
+            this.colDetEstado.Width = 80;
             // 
             // btnAgregar
             // 
@@ -259,9 +274,20 @@
             this.btnQuitar.UseVisualStyleBackColor = true;
             this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
             // 
+            // btnSolicitarFactura
+            // 
+            this.btnSolicitarFactura.Location = new System.Drawing.Point(479, 339);
+            this.btnSolicitarFactura.Name = "btnSolicitarFactura";
+            this.btnSolicitarFactura.Size = new System.Drawing.Size(94, 23);
+            this.btnSolicitarFactura.TabIndex = 13;
+            this.btnSolicitarFactura.Text = "Solicitar factura";
+            this.btnSolicitarFactura.UseVisualStyleBackColor = true;
+            this.btnSolicitarFactura.Click += new System.EventHandler(this.btnSolicitarFactura_Click);
+            // 
             // FormComandaMesa
             // 
             this.ClientSize = new System.Drawing.Size(585, 432);
+            this.Controls.Add(this.btnSolicitarFactura);
             this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.lblTotal);
@@ -305,9 +331,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colProdNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProdCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn colProdPrecio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDetDescripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDetCantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDetLinea;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDetProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDetCant;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDetPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDetSubtotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDetEstado;
+        private System.Windows.Forms.Button btnSolicitarFactura;
     }
 }

@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using BE;
-using Backup; // el mismo namespace que usás para GestorCarpeta
+using Backup;
 
 namespace MPP
 {
@@ -22,7 +22,6 @@ namespace MPP
         {
             if (!File.Exists(_ruta))
             {
-                // si no existe, lo creamos mínimo
                 var docNuevo = new XDocument(
                     new XElement("Root",
                         new XElement("Mesas")
@@ -33,7 +32,6 @@ namespace MPP
 
             _doc = XDocument.Load(_ruta);
 
-            // si existe el archivo pero no el nodo Mesas, lo agregamos
             if (_doc.Root.Element("Mesas") == null)
             {
                 _doc.Root.Add(new XElement("Mesas"));
@@ -57,10 +55,8 @@ namespace MPP
 
             if (o.Id == 0)
             {
-                // ALTA
                 o.Id = ObtenerUltimoId() + 1;
 
-                // completar si vienen vacíos
                 if (string.IsNullOrWhiteSpace(o.Codigo))
                     o.Codigo = "M" + o.Id.ToString("00");
                 if (o.Numero == 0)
@@ -80,7 +76,6 @@ namespace MPP
             }
             else
             {
-                // MODIFICACIÓN
                 var xMesa = _doc.Root.Element("Mesas").Elements("Mesa")
                     .FirstOrDefault(x => (long)x.Attribute("Id") == o.Id);
 

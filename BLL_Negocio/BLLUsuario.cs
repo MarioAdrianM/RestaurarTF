@@ -13,11 +13,13 @@ namespace BLL_Negocio
     {
         private readonly MPPUsuario _mpp;
         private readonly BLLRol _bllRol;
+        private readonly BLLPermiso _bllPermiso;
 
         public BLLUsuario()
         {
             _mpp = new MPPUsuario();
             _bllRol = new BLLRol();
+            _bllPermiso = new BLLPermiso();
         }
 
         #region IGestor básicos
@@ -29,6 +31,8 @@ namespace BLL_Negocio
 
         public bool Eliminar(BEUsuario oBEUsuario)
         {
+            if (oBEUsuario.Usuario=="admin") 
+                throw new Exception("El usuario administrador no puede eliminarse.");
             return _mpp.Eliminar(oBEUsuario);
         }
 
@@ -39,12 +43,34 @@ namespace BLL_Negocio
 
         public BEUsuario ListarObjeto(BEUsuario oBEUsuario)
         {
-            return _mpp.ListarObjeto(oBEUsuario);
+            var usuario = _mpp.ListarObjeto(oBEUsuario);
+
+            if (usuario == null)
+                return null;
+
+            if (usuario.Usuario.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
+                var todosLosPermisos = _bllPermiso.ListarTodo();
+                usuario.listaPermisos = todosLosPermisos;
+            }
+
+            return usuario;
         }
 
         public BEUsuario ListarObjetoPorId(BEUsuario oBEUsuario)
         {
-            return _mpp.ListarObjetoPorId(oBEUsuario);
+            var usuario = _mpp.ListarObjetoPorId(oBEUsuario);
+
+            if (usuario == null)
+                return null;
+
+            if (usuario.Usuario.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
+                var todos = _bllPermiso.ListarTodo();
+                usuario.listaPermisos = todos;
+            }
+
+            return usuario;
         }
 
         public List<BEUsuario> ListarTodo()
@@ -112,25 +138,24 @@ namespace BLL_Negocio
             if (oBEPermiso == null || oBEPermiso.Id == 0)
                 throw new Exception("Debe seleccionar un permiso válido.");
 
-            // 1) traigo los roles del usuario
+
             var rolesUsuario = ListarRolesDelUsuario(oBEUsuario);
 
             if (rolesUsuario != null && rolesUsuario.Count > 0)
             {
                 foreach (var rol in rolesUsuario)
                 {
-                    // 2) para cada rol veo sus permisos
+         
                     var permisosDelRol = _bllRol.ListarPermisosDelRol(rol);
                     if (permisosDelRol != null && permisosDelRol.Any(p => p.Id == oBEPermiso.Id))
                     {
-                        // 3) si ya está en un rol -> no dejo seguir
+                   
                         throw new Exception(
                             $"El usuario ya recibe el permiso \"{oBEPermiso.Nombre}\" por el rol \"{rol.Nombre}\".");
                     }
                 }
             }
 
-            // 4) si llegamos acá, el permiso no está en ningún rol del usuario
             
             return _mpp.AsociarPermisoAUsuario(oBEUsuario, oBEPermiso);
         }
@@ -142,6 +167,14 @@ namespace BLL_Negocio
 
         public List<BEPermiso> ListarTodosLosPermisosDelUsuario(BEUsuario oBEusuario)
         {
+            if (oBEusuario != null &&
+         oBEusuario.Usuario.Equals("admin", StringComparison.OrdinalIgnoreCase))
+            {
+                var bllPermiso = new BLLPermiso();
+                return bllPermiso.ListarTodo();
+            }
+
+           
             return _mpp.ListarTodosLosPermisosDelUsuario(oBEusuario);
         }
         public List<BEPermiso> ListarPermisosDirectosDelUsuario(BEUsuario oBEUsuario)
@@ -152,6 +185,21 @@ namespace BLL_Negocio
         #endregion
 
         #region Seguridad: Usuario completo (roles + permisos)
+        public bool CambiarPassword(BEUsuario usuarioLogueado, string passwordActualClaro, string passwordNuevaClaro)
+        {
+            var usuarioBD = _mpp.ListarObjeto(usuarioLogueado);
+            if (usuarioBD == null)
+                throw new Exception("No se encontró el usuario.");
+
+            var passActualEncriptada = _mpp.EncriptarPassword(passwordActualClaro);
+
+            if (usuarioBD.Password.Trim() != passActualEncriptada.Trim())
+                throw new Exception("La contraseña actual no es correcta.");
+
+            usuarioBD.Password = passwordNuevaClaro;
+
+            return _mpp.Guardar(usuarioBD);
+        }
 
         public BEUsuario ListarObjetoJerarquico(BEUsuario oBEUsuario)
         {
